@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BergTheme Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link rel="stylesheet" href="less/custom.css">
+		<link href='http://fonts.useso.com//css?family=Open+Sans:400,300,600&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<script src="js/jquery-2.1.0.min.js"></script>
+		<script src="js/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="col-md-12">
+                <section class="header">
+                    <h1><span>Berg HTML</span> documentation</h1>
+
+                </section>
+            </div>
+
+<div class="col-md-3">
+	<ul class="docs-nav">
+	
+		<li>
+			<a href="index.html" class="">Start</a>
+		</li>
+		<li>
+			<a href="grid.html" class="">Grid</a>
+		</li>
+		<li>
+			<a href="styles.html" class="">Styles</a>
+		</li>
+		<li>
+			<a href="navbar.html" class="">Navbar</a>
+		</li>
+		<li>
+			<a href="intro-section.html" class="">Intro section</a>
+		</li>
+		<li>
+			<a href="home.html" class="">Home</a>
+		</li>
+		<li>
+			<a href="blog.html" class="">Blog</a>
+		</li>
+		<li>
+			<a href="restaurant.html" class="">Restaurant</a>
+		</li>
+		<li>
+			<a href="menu.html" class="">Menu</a>
+		</li>
+		<li>
+			<a href="reservation.html" class="">Reservation</a>
+		</li>
+		<li>
+			<a href="contact.html" class="">Contact</a>
+		</li>
+		<li>
+			<a href="shop.html" class="">Shop</a>
+		</li>
+		<li>
+			<a href="gallery.html" class="active">Gallery</a>
+		</li>
+		<li>
+			<a href="typography.html" class="">Typography</a>
+		</li>
+		<li>
+			<a href="animations.html" class="">Animations</a>
+		</li>
+		<li>
+			<a href="authoring_info.html" class="-info">Authoring info</a>
+		</li>					
+		<li>
+			<a href="credits.html" class="">Credits</a>
+		</li>
+	</ul>
+</div>
+<div class="col-md-9">
+	<section class="main-content">
+		<h2>Gallery</h2>
+		<hr/>
+
+		<p>Create own gallery by add images to <strong>gallery.html</strong> and load images content in <strong>gallery-content</strong>. You want 4 images columns in your gallery? It's simple. All you need to do is declare columns count in class "gallery-content" and "data-columns" e.g. "four-columns", data-columns="4". You can also devide images to categories by add a category number (e.g. category-1). More infromation about load content you find in <a href="blog.html">blog</a> </p>
+
+		<pre>
+		&lt;div class="gallery-content <strong>three-columns</strong>" <strong>data-columns="3"</strong.&gt; <strong><-- declare columns count</strong>
+			&lt;a class="mix category-1 open-overlay" href="http://peach.blender.org/wp-content/uploads/big_big_buck_bunny.jpg" &gt; 
+				&lt;img src="img/blog/blog1.jpg" /&gt;
+				&lt;div&gt;
+					&lt;div&gt;
+						&lt;span&gt;						
+							&lt;h3&gt;Single image&lt;/h3&gt;
+							&lt;p&gt;This is an example for single image.&lt;/p&gt;
+						&lt;/span&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/a&gt;
+		...
+		</pre>
+
+		<p>
+		We're proud to present our overlay you can use it by insert class "open-overlay". Overlay can shows single image, video or images group. We chose owl carousel to light images group. It's a simple usage, all you need to do is fill file "ajax-gallery.html". This slider has many options which you can change if you want it but remember about use predefined our classes.
+		</p>
+
+		<pre>
+		<strong>Images slider</strong>
+		// gallery.html
+		...
+		&lt;a class="mix category-2 open-overlay" <strong>href="ajax-gallery.html"</strong>&gt;
+			&lt;img src="img/blog/blog3.jpg" /&gt;
+			&lt;div&gt;
+				&lt;div&gt;
+					&lt;span&gt;
+						&lt;h3&gt;Ajax loaded album&lt;/h3&gt;
+						&lt;p&gt;This is the most advanced option. Provide url to another file with album content. You can use images and videos.&lt;/p&gt;
+					&lt;/span&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;				
+		&lt;/a&gt;
+		...
+
+		// ajax-gallery.html
+		&lt;section id="gallery"&gt;
+		    &lt;div class="gallery-content fullscreen"&gt;&lt;a class="close-button"&gt;&lt;i class="icon-close"&gt;&lt;/i&gt;&lt;/a&gt;
+		        &lt;div class="gallery"&gt;
+		            &lt;div class="loading-spinner"&gt;&lt;/div&gt;
+		            &lt;div id="images" class="owl-carousel"&gt;
+		            	// add url images or video
+		            	&lt;div class="item-video"&gt;&lt;a class="owl-video" href="http://vimeo.com/23924346"&gt;&lt;/a&gt;&lt;/div&gt;
+		            	&lt;div class="item"&gt;&lt;figure&gt;&lt;img src="img/blog/blog6.jpg" /&gt;&lt;/figure&gt;&lt;/div&gt;
+		            	&lt;div class="item"&gt;&lt;figure&gt;&lt;img src="img/blog/blog7.jpg" /&gt;&lt;/figure&gt;&lt;/div&gt;
+		            	&lt;div class="item"&gt;&lt;figure&gt;&lt;img src="img/blog/blog8.jpg" /&gt;&lt;/figure&gt;&lt;/div&gt;
+		            &lt;/div&gt;
+		            &lt;div class="controls"&gt;&lt;/div&gt;
+		        &lt;/div&gt;
+		    &lt;/div&gt;
+		&lt;/section&lt;
+		</pre>
+
+		<h3>Owl carousel options</h3>
+		<p>We used the newest version owl carousel 2. More information about this slider you find <a href="http://www.owlcarousel.owlgraphic.com/">here</a></p>
+
+		<pre>
+		// main.js
+		...
+		var loop = true;
+			if($(owl).find('.item').length === 1)
+				loop = false;
+				owl.owlCarousel({
+				video: true,
+				videoWidth: false,
+				videoHeight: false,
+				items: 1,
+				loop: loop,
+				merge: false,
+				nav: true,
+				slideSpeed: 2000,
+				dots: false,
+				startPosition: current,
+				callbacks: true,
+				navText: ['&lt;i class="fa fa-angle-left"&gt;&lt;/i&gt;', '&lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;'],
+				responsiveClass: false,
+		...
+		</pre>
+	</section>
+</div>
+
+<section class="footer">
+	created by <a href="http://yosoftware.com">yosoftware</a>
+</section>

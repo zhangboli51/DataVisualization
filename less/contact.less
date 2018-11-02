@@ -1,0 +1,104 @@
+/* 15. Contact */
+/* ------------------------------------------------------ */
+#contact { 
+	.v-card a { color: @textColor; .lh-transition(color .3s);
+		&.contact-email { color: @highlightColor;
+			&:hover { color: darken(@highlightColor, 10%)}
+		}
+	}
+	#contact-form { 
+		input[type=text], textarea { .lh-appearance(none);}
+		.message { width: 100%;}
+
+		textarea {  background: transparent;  width: 100%; resize: none; padding: 15px; font-weight: 300;}
+		.btn-submit { width: 100%; overflow: hidden; 
+			.button-send { margin: 15px 0; font-weight: 100; letter-spacing: 1px;}
+		}
+		.message-success { right: 0; top: 15px;}
+	}
+}
+ 
+/* Map Marker */
+/* ------------------------------------------------------ */
+.maps-label {
+	position: relative;
+	margin-left: -100% !important;
+	padding-left: -100% !important; 
+	font-weight: 700;  font-size: 24px; 
+}
+
+.maps-label-container {
+	position: absolute;
+}
+
+.pin {
+	width: 30px;
+	height: 30px;
+	border-radius: 50% 50% 50% 0;
+	background: @highlightColor;
+	position: absolute;
+	.lh-transform(rotate(-45deg));
+	left: 5px;
+	top: -20px;
+	margin: -20px 0 0 -20px;
+}
+.pin:after {
+	content: "";
+	width: 14px;
+	height: 14px;
+	margin: 8px 0 0 8px;
+	background: #e6e6e6;
+	position: absolute;
+	border-radius: 50%;
+}
+
+.bounce {
+	.lh-animation-name(bounce);
+	.lh-animation-fill-mode(both);
+	.lh-animation-duration(1s);
+}
+
+.pulse { 
+	background: #d6d4d4;
+	border-radius: 50%;
+	height: 14px;
+	width: 14px;
+	position: absolute;
+	left: 5px;
+	top: -15px;
+	margin: 11px 0px 0px -12px;
+	.lh-transform(rotateX(55deg));
+	z-index: -2;
+} 
+.pulse:after {
+	content: ""; 
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	margin: -13px 0 0 -13px;
+	.lh-animation(pulsate 1s ease-out);
+	.lh-animation-iteration-count(infinite);
+	opacity: 0;
+	box-shadow: 0 0 1px 2px @highlightColor;
+	.lh-animation-delay(1.1s);
+}
+
+.lh-keyframes(~'pulsate, 0%{ transform: scale(0.1, 0.1); opacity: 0; } 50%{ opacity: 1 } 100%{ transform: scale(1.2, 1.2); opacity: 0}');
+.lh-keyframes(~'bounce, 0%{ transform: translateY(-2000px) rotate(-45deg); opacity: 0; } 60%{ opacity: 1; transform: translateY(30px) rotate(-45deg); } 80% { transform: translateY(-10px) rotate(-45deg); } 100%{ transform: translateY(0) rotate(-45deg); }');
+
+/* Contact mediaqueries */
+/* ------------------------------------------------------ */
+@media (min-width: @screen-sm-min) { 
+	#contact {
+		.contact-header { text-align: center; }
+		.v-card a {
+			&:hover { color: @highlightColor; }
+			&.contact-email { 
+				&:hover { color: darken(@highlightColor, 15%)}
+			}
+		}
+	}
+}
+/* End of contact */
+/* ------------------------------------------------------ */

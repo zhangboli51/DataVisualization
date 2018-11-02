@@ -1,0 +1,175 @@
+/* 12. Restaurant section */
+/* ------------------------------------------------------ */
+#restaurant { z-index: 2; 
+	.item { display: table; position: relative; 
+		.restaurant-content { display: block; vertical-align: middle; text-align: center; position: relative; z-index: 10; width: 100%; color: @textColor; text-align: left;}
+		.mobile-img img { width: 100%; height: auto;}
+	}
+	.pre-content h1:after { background: @textColor;}
+	.video-wrapper { position: relative !important; height: 300px !important; }
+}
+
+.page-control { position: fixed; height: 200px; background: transparent; top: 50%; margin-top: -100px; margin-bottom: 0; right: 0; z-index: 20;
+	li { position: relative; width: 16px; height: 16px; margin: 15px; display: block; 
+		a { width: 100%; height: 100%; border-radius: 50%; border: 2px solid @textColor; background: @bgColor; position: absolute; top: 0; left: 0; .lh-transition(border .3s, background .3s);
+			&:after { content: ''; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: @bgColor2; border-radius: 50%; box-shadow: 0 0 1px @bgColor2; .lh-opacity(0); .lh-transform(scale(3)); visibility: visible; .lh-transition(opacity 0.3s, transform 0.3s, visibility 0s 0.3s);}
+		}
+		&:hover { 
+			a { border: 2px solid @textColor2; background: fade(@bgColor2, 70%)}
+		}
+	}
+	.ui-page-scrolling-control_active a { border: 2px solid @textColor2; background: @bgColor2; 
+		&:after { .lh-opacity(1); .lh-transform(scale(1)); visibility: hidden;  }
+	}
+}
+
+.video-section { background-color: rgb(15, 15, 15); margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px; width: 100%; visibility: visible; position: relative; height: 100%; }
+.video-mask { position: absolute; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0, 0, 0, 0.5) url('../img/overlay.png') repeat 0 0; z-index: 1;}
+.video-controls { position: absolute; z-index: 150; bottom: 30px; left: 30px; overflow: hidden;
+	div { float: left; margin-right: 10px;
+		i { color: @textColor2; cursor: pointer; .lh-transition(color .3s); }
+		&:hover { 
+			i { color: @highlightColor; }
+		}
+	}
+}
+
+#slides { position: absolute !important; top: 0; left: 0; opacity: 1 !important;
+	.content { z-index: 100; position: relative; top: 50%; width: 100%; text-align: center; margin-top: -50px;
+		h1, p { width: 70%; margin: auto}
+	}
+	img { width: 100%; height: auto;}
+}
+.slide-content { text-align: center; position: relative; display: table-cell; vertical-align: middle; width: 100% !important; z-index: 100;}
+.slides-text { position: absolute; width: 100%; height: 100%; margin: 0; padding: 0; display: block; 
+	> li { position: absolute; width: 100%; height: 100%; color: @textColor2;}
+	.slide-content-wrapper { position: relative; z-index: 101; vertical-align: middle; opacity: 0; .translate(0, -20px); top: 50%; width: 100%;  margin-top: -50px; text-align: center;
+		.lh-transition(opacity 1.5s linear, transform 1.5s);
+		&.current-slide { opacity: 1; .translate(0,0); }
+	}
+}
+
+/* Restaurant mediaqueries */
+/* ------------------------------------------------------ */
+@media (max-width: @screen-xs-max) {
+	#restaurant {
+		.item { height: auto !important; }
+	}
+}
+
+@media (min-width: @screen-sm-min) {
+	#restaurant { height: 100%; background: @bgColor2;
+		.item {  background: @bgColor2; 
+			.restaurant-content { display: table-cell; color: @textColor2;}
+		}
+		.pre-content h1:after { background: @textColor2;}
+		.video-wrapper { position: absolute !important; height: 100% !important; }
+	}
+
+	#slides img { width: auto }
+
+	.custom-navigation {
+		.prev, .next {
+			&:hover { color: @highlightColor;}
+		}
+	}
+
+	.controls-video i:hover { color: @highlightColor }
+
+	.easing {
+		.lh-transition(transform .9s cubic-bezier(0.645, 0.045, 0.355, 1));
+	}
+
+	#fullPage-nav {
+		position: fixed;
+		z-index: 100;
+		margin-top: -32px;
+		top: 50%;
+		opacity: 1;
+	}
+	#fullPage-nav.right {
+		right: 17px;
+	}
+	#fullPage-nav.left {
+		left: 17px;
+	}
+	.fullPage-slidesNav {
+		position: absolute;
+		z-index: 4;
+		left: 50%;
+		opacity: 1;
+	}
+	.fullPage-slidesNav.bottom {
+		bottom: 17px;
+	}
+	.fullPage-slidesNav.top {
+		top: 17px;
+	}
+	#fullPage-nav ul,
+	.fullPage-slidesNav ul {
+	  margin: 0;
+	  padding: 0;
+	}
+	#fullPage-nav li,
+	.fullPage-slidesNav li {
+		display: block;
+		width: 16px;
+		height: 16px;
+		margin: 15px 0;
+		position:relative;
+	}
+	.fullPage-slidesNav li {
+		display: inline-block;
+	}
+	#fullPage-nav li a,
+	.fullPage-slidesNav li a {
+		display: block;
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+		text-decoration: none;
+	}
+	#fullPage-nav li .active span,
+	.fullPage-slidesNav .active span {
+		background: #111;
+		border-color: #fff; 
+		&:after { .lh-opacity(1); .lh-transform(scale(1)); visibility: hidden;  }
+	}
+	#fullPage-nav span, .fullPage-slidesNav span {
+		.lh-transition(border-color .3s, background-color .3s);
+		background: #fff;
+		top: 2px;
+		left: 2px;
+		width: 16px;
+		height: 16px;
+		border: 2px solid #000;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		border-radius: 50%;
+		position: absolute;
+		z-index: 1;
+		&:after { content: ''; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: @bgColor2; border-radius: 50%; box-shadow: 0 0 1px @bgColor2; .lh-opacity(0); .lh-transform(scale(3)); visibility: visible; .lh-transition(opacity 0.3s, transform 0.3s, visibility 0s 0.3s);}
+
+		&:hover {
+			background: #111;
+			border-color: #fff;     	
+		}
+	}
+	.fullPage-tooltip {
+		position: absolute;
+		color: #fff;
+		font-size: 14px;
+		font-family: arial, helvetica, sans-serif;
+		top: -2px;
+	}
+	.fullPage-tooltip.right {
+		right: 20px;
+	}
+	.fullPage-tooltip.left {
+		left: 20px;
+	}
+}
+/* End of restaurant section */
+/* ------------------------------------------------------ */

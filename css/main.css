@@ -1,0 +1,72 @@
+h1 {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-family: 'helvetica';
+}
+
+div#window {
+	width: 1350px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#left_bar {
+	display: inline-block;
+	vertical-align: top;
+	padding: 5px;
+	border: solid 1px;
+}
+
+div#side_block {
+	display: inline-block;
+	width: 300px;
+	height: 695px;
+	vertical-align: top;
+	padding: 5px;
+	border: solid 1px;
+}
+
+#left_bar .level2 {
+	margin-left: 20px;
+}
+
+#side_block #hero_info h2 {
+	display: inline-block;
+	line-height: 40px;
+	vertical-align: top;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#side_block #hero_info #title {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	text-align: center;
+}
+
+#side_block #hero_info #hero_portrait {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	display: block;
+}
+
+#side_block #hero_info #data {
+	margin-left: 22px;
+	margin-right: 22px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display:block;
+
+}
+
+.title {
+	text-align: center;
+}
+
+.notvisible {
+	visibility: hidden;
+}

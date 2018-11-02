@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BergTheme Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link rel="stylesheet" href="less/custom.css">
+		<link href='http://fonts.useso.com//css?family=Open+Sans:400,300,600&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<script src="js/jquery-2.1.0.min.js"></script>
+		<script src="js/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="col-md-12">
+                <section class="header">
+                    <h1><span>Berg HTML</span> documentation</h1>
+
+                </section>
+            </div>
+
+<div class="col-md-3">
+	<ul class="docs-nav">
+	
+		<li>
+			<a href="index.html" class="">Start</a>
+		</li>
+		<li>
+			<a href="grid.html" class="">Grid</a>
+		</li>
+		<li>
+			<a href="styles.html" class="">Styles</a>
+		</li>
+		<li>
+			<a href="navbar.html" class="">Navbar</a>
+		</li>
+		<li>
+			<a href="intro-section.html" class="">Intro section</a>
+		</li>
+		<li>
+			<a href="home.html" class="">Home</a>
+		</li>
+		<li>
+			<a href="blog.html" class="active">Blog</a>
+		</li>
+		<li>
+			<a href="restaurant.html" class="">Restaurant</a>
+		</li>
+		<li>
+			<a href="menu.html" class="">Menu</a>
+		</li>
+		<li>
+			<a href="reservation.html" class="">Reservation</a>
+		</li>
+		<li>
+			<a href="contact.html" class="">Contact</a>
+		</li>
+		<li>
+			<a href="shop.html" class="">Shop</a>
+		</li>
+		<li>
+			<a href="gallery.html" class="">Gallery</a>
+		</li>
+		<li>
+			<a href="typography.html" class="">Typography</a>
+		</li>
+		<li>
+			<a href="animations.html" class="">Animations</a>
+		</li>
+		<li>
+			<a href="authoring_info.html" class="-info">Authoring info</a>
+		</li>					
+		<li>
+			<a href="credits.html" class="">Credits</a>
+		</li>
+	</ul>
+</div>
+<div class="col-md-9">
+	<section class="main-content">
+		<h2>Blog</h2>
+		<hr/>
+		<p>
+		We created blog with load function you need to create appriopriate files. Every pack of posts has link to next pack ( blog-content-2.html etc. ). You only need to provide this url in similiar manner. Blog has two columns with first displaying featured post (1000px x 600px image).
+		</p>
+
+		<pre>
+		&lt;div id="blog-content-append" class="row"&gt;
+			&lt;article class="post"&gt;
+				&lt;a href="post.html" class="img-post unveil"&gt;
+					&lt;figure&gt;
+						&lt;img src="img/placeholder2.png" data-src="img/blog/blog1.jpg" alt="Menu item"/&gt; <strong><-- url image post</strong>
+						&lt;div class="actions"&gt;
+							&lt;i class="icon-magnifier-add"&gt;&lt;/i&gt;
+						&lt;/div&gt;
+					&lt;/figure&gt;
+				&lt;/a&gt;
+				&lt;div class="post-content"&gt;
+					&lt;div class=""&gt;
+						&lt;div class=""&gt; 
+							&lt;span class="date"&gt;23 | 05 | 2014&lt;/span&gt;
+							&lt;h3&gt;&lt;a href="post.html"&gt;Exquisite Flavours and Ingredients&lt;/a&gt;&lt;/h3&gt;
+							&lt;p&gt;Pellentesque fringilla mauris id dolor ultrices elementum. In auctor odio neque, a convallis lacus eleifend in. Nunc hendrerit, est quis bibendum tempus, lectus libero ullamcorper purus, ac ultricies magna enim id eros.&lt;/p&gt; <strong> <-- short post text</strong> 
+							&lt;div class="blog-button"&gt; 
+								&lt;a href="post.html" class="btn btn-default"&gt;read more&lt;/a&gt;
+							&lt;/div&gt; 
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/article&gt;
+		...
+
+
+		<strong>loaded content</strong>
+		&lt;article class="load-more post" <strong>data-href="blog-content-2.html"</strong>&gt;
+			&lt;div class="load-more-text"&gt;
+				&lt;span class="hidden-xs"&gt;Load more
+					&lt;!-- &lt;i class="fa fa-spinner fa-spin hidden-xs"&gt;&lt;/i&gt; --&gt;
+				&lt;/span&gt;
+				&lt;button class="visible-xs"&gt;Load more&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/article&gt;
+
+		...
+		</pre>
+		<p>Delete last article if you don't want to load more posts. With good url provided within article.load-more data-href, new posts will by automatically appended on section scroll.
+		</p>
+
+
+		<h3>Single post view</h3>
+		<p>We created 2 variants of single post. See file post.html and post2.html for post template. Every post has view recent comments and comment form. If you want to add article images, insert your url. You can also use our classes to positioning images.</p>
+
+		<strong>Images position</strong>
+		<dl class="dl-horizontal">
+			<dt>
+				alignleft <dd>image at the left of text</dd>
+			</dt>
+			<dt>
+				alignright <dd>image at the right of text </dd>
+			</dt>
+			<dt>
+				nav-center <dd>image at the center </dd>
+			</dt>
+		</dl>
+		<pre>
+		<strong>custom.less</strong>
+
+		img.alignright {float:right; margin:0 0 0 1em; }
+		img.alignleft {float:left; margin:0 1em 0 0; }
+		img.aligncenter {display: block; margin-left: auto; margin-right: auto; }
+		.alignright {float:right; }
+		.alignleft {float:left; }
+		.aligncenter {display: block; margin-left: auto; margin-right: auto; }
+		</pre>
+
+		<pre>
+		<strong>Post header</strong>
+
+		&lt;section id="post" class="section-scroll main-section blog"&gt;
+			&lt;div class="container-fluid"&gt;
+				&lt;div class="row"&gt;
+					<strong>// post.html</strong>
+					&lt;article class="post"&gt;
+						&lt;a href="#" class="img-post "&gt;
+							&lt;figure&gt;
+								&lt;img src="img/blog/blog3.jpg" alt="blog item"/&gt;
+							&lt;/figure&gt;
+						&lt;/a&gt;
+						&lt;div class="post-content"&gt;
+							&lt;div class=""&gt;
+								&lt;div class=""&gt; 
+									&lt;span class="date"&gt;23 | 05 | 2014&lt;/span&gt;
+									&lt;h3&gt;&lt;a href="#"&gt;Exquisite Flavours and Ingredients&lt;/a&gt;&lt;/h3&gt;
+									&lt;div class="post-author"&gt;
+										&lt;a href="#"&gt;interior&lt;/a&gt;
+										&lt;a href="#"&gt;3 comments&lt;/a&gt;
+									&lt;/div&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/article&gt;
+					...
+					<strong>// post2.html</strong>
+					&lt;article class="post"&gt; 
+						&lt;figure&gt;
+							&lt;img src="img/post.jpg" alt="post item"/&gt;
+						&lt;/figure&gt;
+					&lt;/article&gt;
+
+		<strong>Post text</strong>
+
+		&lt;div class="post-text"&gt;
+			&lt;header&gt;
+				&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu lectus nunc. Suspendisse sagittis diam aliquet, interdum felis eget, fermentum mauris. Vivamus ipsum metus, dictum fermentum lobortis eleifend, eleifend non nibh. Integer fermentum accumsan metus. Nullam tristique interdum mollis. Praesent rutrum massa a lobortis interdum.
+				&lt;/p&gt;
+			&lt;/header&gt;
+			&lt;article&gt;
+				&lt;img src="<strong>img/blog/post-3.jpg</strong>" class="alignleft sm-image"/&gt;
+				&lt;p&gt;Nullam tristique interdum mollis. Praesent rutrum massa a lobortis interdum...
+		...
+		</pre>
+	</section>
+</div>
+<section class="footer">
+	created by <a href="http://yosoftware.com">yosoftware</a>
+</section>

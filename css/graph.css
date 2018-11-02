@@ -1,0 +1,37 @@
+#main_window g.mark image {
+	opacity: .7;
+}
+
+#main_window g.mark image.hovered, #main_window g.mark image.selected {
+	opacity: 1;
+}
+
+#main_window .axis path, #main_window .axis line {
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
+}
+
+#main_window .axis .tick line {
+    stroke: lightgrey;
+    opacity: 0.7;
+}
+
+#main_window .axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+#main_window .axis text#axis_label {
+	text-anchor: middle;
+}
+
+#window div#hero_label {
+	position: absolute;
+	display: none;
+	visibility: visible;
+}
+
+#side_block g.mark text {
+	text-anchor: middle;
+}

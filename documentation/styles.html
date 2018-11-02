@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BergTheme Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link rel="stylesheet" href="less/custom.css">
+		<link href='http://fonts.useso.com//css?family=Open+Sans:400,300,600&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<script src="js/jquery-2.1.0.min.js"></script>
+		<script src="js/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="col-md-12">
+                <section class="header">
+                    <h1><span>Berg HTML</span> documentation</h1>
+
+                </section>
+            </div>
+
+<div class="col-md-3">
+	<ul class="docs-nav">
+	
+		<li>
+			<a href="index.html" class="">Start</a>
+		</li>
+		<li>
+			<a href="grid.html" class="">Grid</a>
+		</li>
+		<li>
+			<a href="styles.html" class="active">Styles</a>
+		</li>
+		<li>
+			<a href="navbar.html" class="">Navbar</a>
+		</li>
+		<li>
+			<a href="intro-section.html" class="">Intro section</a>
+		</li>
+		<li>
+			<a href="home.html" class="">Home</a>
+		</li>
+		<li>
+			<a href="blog.html" class="">Blog</a>
+		</li>
+		<li>
+			<a href="restaurant.html" class="">Restaurant</a>
+		</li>
+		<li>
+			<a href="menu.html" class="">Menu</a>
+		</li>
+		<li>
+			<a href="reservation.html" class="">Reservation</a>
+		</li>
+		<li>
+			<a href="contact.html" class="">Contact</a>
+		</li>
+		<li>
+			<a href="shop.html" class="">Shop</a>
+		</li>
+		<li>
+			<a href="gallery.html" class="">Gallery</a>
+		</li>
+		<li>
+			<a href="typography.html" class="">Typography</a>
+		</li>
+		<li>
+			<a href="animations.html" class="">Animations</a>
+		</li>
+		<li>
+			<a href="authoring_info.html" class="-info">Authoring info</a>
+		</li>					
+		<li>
+			<a href="credits.html" class="">Credits</a>
+		</li>
+	</ul>
+</div>
+<div class="col-md-9">
+  <section class="main-content">
+    <h2>Styles</h2>
+    <hr/>
+
+    <p>
+    	BergTheme utilize LESS for easy customization of visual aspects of our theme. For more information about LESS, we recommend to visit <a href="http://lesscss.org">http://lesscss.org</a>.
+    </p>
+    <hr/>
+
+    <h2>Variables and customization</h2>
+    <hr/>
+    <p>
+    	All changes of colors can be done within a file <strong>custom.less</strong>. It aggregates every other LESS stylesheets into one. 
+    </p>
+    <hr/>
+    <h3>How to change colors?</h3>
+    <p>
+    	You need to change colors your website, but you don't know how? On the top in <strong>custom.less</strong> you find basic colors used by us. Defined colors are listed below and can be edited in custom.less.
+    </p>
+    <pre>
+    //Colors
+    //-----------------------------------------
+    @bgColor:             #fff;
+    @bgColor2:              #111;
+    @textColor:             #333;
+    @textColor2:            #fff;
+    @highlightColor:          #ca293e;
+    </pre>
+    <hr/>
+    <h3>How to change fonts?</h3>
+    <p>
+    	If you want to change fonts, can be done within header all html files and <strong>custom.less</strong>. Only need to change bold lines in markup presented below the text.
+    </p>
+    <strong>html files</strong>
+    <pre>&lt;head&gt;
+      &lt;meta charset="utf-8"&gt;
+      &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+      &lt;title&gt;Berg - BergTheme HTML&lt;/title&gt;
+      &lt;meta name="description" content=""&gt;
+      &lt;meta name="msapplication-tap-highlight" content="no" /&gt;
+
+      &lt;meta name="viewport" content="user-scalable=0, width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" /&gt;
+      <strong>&lt;link href='http://fonts.useso.com//css?family=Cabin:400,400italic,500,600,700' rel='stylesheet' type='text/css'&gt;</strong>
+      &lt;!-- Place favicon.ico and apple-touch-icon.png in the root directory --&gt;
+      &lt;link rel="stylesheet" href="less/custom.css"&gt;
+      &lt;script src="js/jquery-2.1.0.min.js"&gt;&lt;/script&gt;
+      &lt;script src="js/modernizr-2.6.2.min.js"&gt;&lt;/script&gt;
+      &lt;script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?sensor=false&#038;ver=3.0'&gt;&lt;/script&gt;
+    &lt;/head&gt;</pre>
+    <strong>custom.less</strong>
+    <pre>
+    // Typography
+    // ----------------------------------------
+
+    <strong>@text-font-family:                'Cabin', Helvetica, Arial, sans-serif;</strong>
+    <strong>@header-font-family:              'Cabin', Helvetica, Arial, sans-serif;</strong>
+    </pre>
+
+    <hr/>
+    <h3>How to change icons?</h3>
+    <p>
+    	We used icons made by FontAwesome, MFG Labs and Simple Line Icons. Only need to changed by adding class of icon in markup. All classes and more information you find <a href="typography.html">here</a>. 
+    </p>
+    <pre>&lt;i class="fa fa-facebook"&gt;&lt;/i&gt;</pre>
+    <hr/>
+
+    <h3>Background image opacity</h3>
+    <p>We created special class to change opacity background image. Only you need to add class "opacity-..." and insert opacity value ( for example: "opacity-20"). Classes you find in <strong>custom.less</strong>.</p>
+    <pre>
+    .opacity-0 { .lh-opacity(.0)}
+    .opacity-10 { .lh-opacity(.1)} 
+    .opacity-20 { .lh-opacity(.2)}  
+    .opacity-30 { .lh-opacity(.3)} 
+    .opacity-40 { .lh-opacity(.4)} 
+    .opacity-50 { .lh-opacity(.5)} 
+    .opacity-60 { .lh-opacity(.6)} 
+    .opacity-70 { .lh-opacity(.7)} 
+    .opacity-80 { .lh-opacity(.8)} 
+    .opacity-90 { .lh-opacity(.9)}
+    .opacity-100 { .lh-opacity(1)}
+    </pre>
+
+    <h3>Other elements</h3>
+    <p>
+    	You want to edit font size, margin etc.? It's simply. All elements you can find in less files. If you need to change basic element made by us, only need to find chosen element in <strong>custom.less</strong> and edit styles.
+    </p>
+    <pre>
+    ...
+
+    //Blockquote
+    //-----------------------------------------
+    blockquote { font-size: 16px; font-style: italic; 
+      i { color: #eee; font-size: 40px; position: absolute; z-index: -1; left: 30px; }
+    }
+    ...
+
+    //Dropcap
+    //-----------------------------------------
+    .dropcap { color: @textColor2; background: @bgColor2; text-align: center; font-size: 2em; float: left; padding: 0 10px; line-height: 1.5em; margin-right: 0.3em; }
+
+    //Form
+    //-----------------------------------------
+    .message-success { position: absolute; top: 0; opacity: 0; text-align: center; right: 0; width: 100%; background: #63C55F; 
+      i { color: #fff; font-size: 30px; display: block; line-height: 1.5em; width: 100%; height: 100%; display: block;  }
+    }
+    .message-error { border: 1px solid #E43832 !important; .lh-placeholder(#E43832) !important; background: #fff !important; }
+
+    .form-control {
+      &.input-row-1 { height: 2.5em }
+      &.input-row-2 { height: 6em }
+      &.input-row-3 { height: 9.4em }
+      &.input-row-4 { height: 12.8em }
+      &.input-row-5 { height: 16.25em }
+      &.input-row-6 { height: 19.7em }
+    }
+    ...
+
+    //Highlights
+    //-----------------------------------------
+    .highlight-color { color: @highlightColor; font-weight: 700;}  
+    .highlight-txt { color: @textColor2; background: @bgColor2; padding: 0 2px} 
+    .highlight-outline { color: @highlightColor; border: 1px solid @highlightColor; padding: 0 2px}
+
+    ...
+    </pre>
+    <hr/>
+
+    <h3>Includes</h3>
+    <p>
+    This section lists all included LESS files in stylesheet. You can create your own and include it right here or find less files responsible for other section. We put a lot of work to separate every section into different LESS file to create opportunity for easy customization and creation of new elements.
+    </p>
+
+    <pre>
+    @import "bootstrap-3.1.1/bootstrap.less";
+    @import "lesshat-prefixed.less";
+    @import "font-awesome/font-awesome.less";
+    @import "simple-line-icons.less";
+    @import "fontello.less";
+    @import "basic.less";
+    @import "home.less";
+    @import "navbar.less";
+    @import "blog.less";
+    @import "post.less";
+    @import "reservation.less";
+    @import "menu.less";
+    @import "restaurant.less";
+    @import "shop.less";
+    @import "product.less";
+    @import "contact.less";
+    @import "cart.less";
+    @import "gallery.less";
+    @import "overlay.less";
+    @import "footer.less";
+    @import "owl-carousel.less";
+    @import "animation.less";
+    </pre>
+    <hr/>
+
+    <h3>Media queries</h3>
+    <p>In some files are separate styles for different devices. More information about media queries you can find <a href="http://getbootstrap.com/css/#grid-media-queries">here</a>.</p>
+    <pre>
+    @media (min-width: @screen-sm-min) { 
+      body { height: 100%; }
+      .section-fullscreen { width: 100%; height: 100%;  display: table; .lh-transition(top .7s); z-index: 2; }
+      .no-intro { padding-top: 80px;  
+        .section-scroll { position: relative; top: 0; z-index:3; }
+      }
+      ...
+    }  
+    </pre>
+  </section>
+</div>
+<section class="footer">
+	created by <a href="http://yosoftware.com">yosoftware</a>
+</section>

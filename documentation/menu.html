@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BergTheme Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link rel="stylesheet" href="less/custom.css">
+		<link href='http://fonts.useso.com//css?family=Open+Sans:400,300,600&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<script src="js/jquery-2.1.0.min.js"></script>
+		<script src="js/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="col-md-12">
+                <section class="header">
+                    <h1><span>Berg HTML</span> documentation</h1>
+
+                </section>
+            </div>
+
+<div class="col-md-3">
+	<ul class="docs-nav">
+	
+		<li>
+			<a href="index.html" class="">Start</a>
+		</li>
+		<li>
+			<a href="grid.html" class="">Grid</a>
+		</li>
+		<li>
+			<a href="styles.html" class="">Styles</a>
+		</li>
+		<li>
+			<a href="navbar.html" class="">Navbar</a>
+		</li>
+		<li>
+			<a href="intro-section.html" class="">Intro section</a>
+		</li>
+		<li>
+			<a href="home.html" class="">Home</a>
+		</li>
+		<li>
+			<a href="blog.html" class="">Blog</a>
+		</li>
+		<li>
+			<a href="restaurant.html" class="">Restaurant</a>
+		</li>
+		<li>
+			<a href="menu.html" class="active">Menu</a>
+		</li>
+		<li>
+			<a href="reservation.html" class="">Reservation</a>
+		</li>
+		<li>
+			<a href="contact.html" class="">Contact</a>
+		</li>
+		<li>
+			<a href="shop.html" class="">Shop</a>
+		</li>
+		<li>
+			<a href="gallery.html" class="">Gallery</a>
+		</li>
+		<li>
+			<a href="typography.html" class="">Typography</a>
+		</li>
+		<li>
+			<a href="animations.html" class="">Animations</a>
+		</li>
+		<li>
+			<a href="authoring_info.html" class="-info">Authoring info</a>
+		</li>					
+		<li>
+			<a href="credits.html" class="">Credits</a>
+		</li>
+	</ul>
+</div>
+<div class="col-md-9">
+	<section class="main-content">
+
+		<h2>Food menu</h2>
+		<hr/>
+
+		<p>We created 2 variant of food menu (with or without images). Every variant has the list category food. The appropriate category load automatically, so you don't have to scroll all menu. 
+		<p>Remember "data-filter" of list category must be the same as class category in food menu. You should also add a number "data-myorder". To good working use predefined our classes ( example under text ). </p>
+		<p>If you want to add food images you should choose menu.html and insert images url. Second variant of menu ( menu2.html ) use if you haven't food photos. </p>
+
+		<pre>
+		&lt;ul class="list-category"&gt;
+			&lt;li&gt; 
+				&lt;span class="filter" data-filter="all"&gt;Show all&lt;/span&gt;
+			&lt;/li&gt;
+			&lt;li&gt; 
+				<strong>&lt;span class="filter" data-filter=".promotions"&gt;Promotions&lt;/span&gt;</strong>
+			&lt;/li&gt;
+			...
+		&lt;/ul&gt;
+
+		&lt;div class="mix <strong>promotions</strong>" <strong>data-myorder="1"</strong>&gt;
+			&lt;div class="row"&gt;
+				&lt;div class="col-xs-12 menu-category sticky-header sticky-header first-header fixed visible"&gt;
+					&lt;h2&gt;Promotions&lt;/h2&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="row"&gt;
+				&lt;div class="menu-item"&gt;
+					&lt;a href="img/food/1.jpg" class="hidden-xs unveil open-overlay"&gt;
+						&lt;figure&gt;
+							&lt;img src="img/placeholder.png" data-src="img/food/1.jpg" alt="Menu item"/&gt;
+							&lt;div class="actions"&gt;
+								&lt;i class="icon-magnifier-add"&gt;&lt;/i&gt;
+							&lt;/div&gt;
+						&lt;/figure&gt;
+					&lt;/a&gt;
+					&lt;div class="item-description"&gt;
+						&lt;div class=""&gt;
+							&lt;div class=""&gt; 
+								&lt;h6&gt;Burbon Chicken&lt;/h6&gt;
+								&lt;p&gt;sed dapibus mauris ac ipsum suscipit, at semper libero commodo&lt;/p&gt;
+								&lt;span class="old-price"&gt;$24.90&lt;/span&gt;
+								&lt;span class="new-price item-price"&gt;$22.90&lt;/span&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+		...
+		</pre>
+	</section>
+</div>
+
+<section class="footer">
+	created by <a href="http://yosoftware.com">yosoftware</a>
+</section>

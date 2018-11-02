@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+		<meta name="description" content="">
+		<meta name="msapplication-tap-highlight" content="yes" />
+
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+		<link href='http://fonts.googleapis.com/css?family=Cabin:400,400italic,500,600,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<!--		 Place favicon.ico and apple-touch-icon.png in the root directory -->
+		<link rel="stylesheet" href="css/custom.css">
+		<script src="js/jquery-2.1.0.min.js"></script>
+		<script src="js/modernizr-2.6.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.tipsy.js"></script>
+<script type="text/javascript" src="js/d3.v3.min.js"></script>
+<script type="text/javascript" src="js/data_aggregator.js"></script>
+<title>Dota Data</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/graph.css">
+<link rel="stylesheet" type="text/css" href="css/tipsy.css">
+
+    </head>
+    <body >
+
+		<!--content-->
+
+
+<nav id="main-navbar" class="hidden-xs hidden-sm">
+	<div class="nav hidden-xs">
+		<div class="main-reorder pull-right">
+			<a href="#">
+				<i class="fa fa-bars"></i>
+			</a>
+		</div>
+
+		<div class="logo pull-left">
+			<a href="index.html">
+				<figure>
+					<img src="img/dlogo1.png" class="light-logo" alt="Berg HTML Theme"/>
+					<img src="img/dlogo1.png" class="dark-logo" alt="Berg HTML Theme"/>
+				</figure>
+			</a>
+		</div>
+		<div class="main-nav">
+			<ul class="pull-right">
+				<li>
+					<a href="index.html" class="    ">home</a>
+					<div class="subnav">
+						<ul class="subnav-wrapper">
+							
+							<li>
+								<a href="index.html" class="">Home</a>
+							</li>
+
+						
+						</ul>
+					</div>					
+				</li>				
+				<li>
+					<a href="blog.html" class="">User guide</a>
+					<div class="subnav">
+						<ul class="subnav-wrapper">
+							<li>
+								<a href="blog.html" class="">User guide</a>
+							</li>
+
+						</ul>
+					</div>
+				</li>
+				
+					
+
+				<li>
+					<a href="analyse.html" class="active">Dota visualization</a>	
+				</li>
+
+			
+			</ul>
+		</div>
+	</div>
+</nav>
+<div id="mobile-nav" class="visible-xs visible-sm">
+	<header>
+		<div class="container-fluid">
+			<ul class="menu-header">
+				<li class="pull-left">
+					<a href="index.html" class="logo">
+						<figure>
+							<img src="img/dlogo1.png" alt="Berg HTML Theme"/>
+						</figure>
+					</a>
+				</li>
+				<li class="reorder pull-right"><a href="#" title=""><i class="fa fa-bars"></i></a></li>
+			</ul>
+		</div>
+	</header>	
+	<div class="" id="flyout-container">
+		<ul id="mobile-navbar" class="nav flyout-menu main-nav nav-height">
+			<li class="nav-item">
+				<a title="" href="index.html">home</a>
+			</li>
+			<li class="nav-item">
+				<a title="" href="blog.html">User Guide</a>
+				<span class="open-children"><i class="fa fa-angle-down"></i></span>
+				<ul class="subnav">
+					<li>
+						<a href="blog.html"><span>User Guide</span></a>
+					</li>
+
+				</ul>
+			</li>
+			
+
+
+			<li class="nav-item">
+				<a title="" href="analyse.html">Contact</a>
+			</li>
+
+
+		</ul>
+	</div>
+</div>
+
+<body>
+	<h1 id="title">
+		Dota Data
+	</h1>
+	<div  id="window">
+		<div style="overflow: auto;height: 760px;width: 200px;" id="left_bar">
+			<select id="y_axis_selection_list">
+			</select>
+			<div id="time_controls">
+				<button id="play_button">Play</button> <span id="current_time">10</span> minutes <br />
+				<button id="scale_toggle">Scale To Fit</button>
+			</div>
+			<div id="hero_filter">
+				<input name="strength" type="checkbox" checked="true" /> Strength
+				<div id="strength" class="level2">
+				</div>
+				<input name="agility" type="checkbox" checked="true" /> Agility
+				<div id="agility" class="level2">
+				</div>
+				<input name="intelligence" type="checkbox" checked="true" /> Intelligence
+				<div id="intelligence" class="level2">
+				</div>
+			</div>
+		</div>
+		<svg id="main_window" width="840" height="840">
+		</svg>
+		<div id="side_block" class="notvisible">
+			<div id="hero_info">
+				<div id="title">
+					<img id="attribute_icon" src="img/icons/attributes/Icon_Str.png" alt="Attribute Icon"><h2>Hero Name</h2>
+				</div>
+				<img id="hero_portrait" src="img/portraits/Alchemist.png" alt="Hero Portrait" />
+				<div id="data">
+					<div id="y_axis_data">
+						<span class="label">Kills Per Death</span>: <span class="value"></span>
+					</div>
+					<div id="win_percent">
+						<span class="label">Win Percentage</span>: <span class="value"></span>
+					</div>
+					<div id="popularity">
+						<span class="label">Popularity (% of games)</span>: <span class="value"></span>
+					</div>
+				</div>
+			</div>
+			<div id="win_with_title" class="title">Best Teammates</div>
+			<svg id="win_with_graph" width="300" height="200">
+			</svg>
+			<div id="win_against_title" class="title">Best Against</div>
+			<svg id="win_against_graph" width="300" height="200">
+			</svg>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var width = 840;
+		var height = 840;
+
+		$(document).ready(function() {
+
+			var y_axis_selections = {
+				"Kills Per Death" : {
+					y_axis_function : function(d) {
+						return d.data_count == 0 ? 0 : d.total_kd / d.data_count;
+					},
+					y_axis_format : d3.format(".2f")
+				},
+				"Assists Per Death" : {
+					y_axis_function : function(d) {
+						return d.data_count == 0 ? 0 : d.total_ad / d.data_count;
+					},
+					y_axis_format : d3.format(".2f") 
+				},
+				"Kil + Assi Per Death" : {
+					y_axis_function : function(d) {
+						return d.data_count == 0 ? 0 : d.total_kda / d.data_count;
+					},
+					y_axis_format : d3.format(".2f") 
+				},
+				"Avg Hero Healing" : {
+					y_axis_function : function(d) {
+						return d.data_count == 0 ? 0 : d.total_hero_healing / d.data_count;
+					},
+					y_axis_format : d3.format(".2f") 
+				},
+				"Avg Hero Damage" : {
+					y_axis_function : function(d) {
+						return d.data_count == 0 ? 0 : d.total_hero_damage / d.data_count;
+					},
+					y_axis_format : d3.format(".2f") 
+				},
+				"Avg Tower Damage" : {
+					y_axis_function : function(d) {
+						return d.data_count == 0 ? 0 : d.total_tower_damage / d.data_count;
+					},
+					y_axis_format : d3.format(".2f") 
+				},
+				"Avg Gold PerMin" : {
+					y_axis_function : function(d) {
+						return d.data_count == 0 ? 0 : d.total_gpm / d.data_count;
+					},
+					y_axis_format : d3.format(".2f") 
+				},
+				"Avg XP Per Minute" : {
+					y_axis_function : function(d) {
+						return d.data_count == 0 ? 0 : d.total_xpm / d.data_count;
+					},
+					y_axis_format : d3.format(".2f") 
+				},
+				"Average Last Hits" : {
+					y_axis_function : function(d) {
+						return d.data_count == 0 ? 0 : d.total_last_hits / d.data_count;
+					},
+					y_axis_format : d3.format(".2f") 
+				}
+			}
+
+			var i = 0;
+			for (var key in y_axis_selections) {
+				$("select#y_axis_selection_list").append("<option value=\"" + i + "\">" + key + "</option>");
+				i++;
+			}
+
+			var selected_y_axis = "Kills Per Death";
+
+			$.getJSON("data/hero_info.json", function(hero_info_data) {
+				var hero_info = hero_info_data;
+
+				var set_side_data_function;
+
+				allowed_heroes = {};
+				for (var key in hero_info) {
+					allowed_heroes[key] = true;
+				}
+
+				var filtered = function(data) {
+					return data;
+					var retval = [];
+					for (var i = 0; i < data.length; i++) {
+						if (allowed_heroes[data[i].id])
+							retval.push(data[i]);
+					}
+					return retval;
+				}
+
+				var calculate_filter = function() {
+					for (var key in hero_info) {
+						allowed_heroes[key] = true;
+					}
+					$('#hero_filter input:checkbox:not(:checked)').each(function(i, e) {
+						var name = $(this).attr("name");
+						if (name == "strength") {
+							for (var key in hero_info) {
+								if (hero_info[key].main_attribute == "S")
+									allowed_heroes[key] = false;
+							}							
+						} else if (name == "agility") {
+							for (var key in hero_info) {
+								if (hero_info[key].main_attribute == "A")
+									allowed_heroes[key] = false;
+							}							
+						} else if (name == "intelligence") {
+							for (var key in hero_info) {
+								if (hero_info[key].main_attribute == "I")
+									allowed_heroes[key] = false;
+							}
+						} else {
+							allowed_heroes[parseInt($(this).attr("data-hero-id"))] = false;
+						}
+					});
+				}
+
+				for (var key in hero_info) {
+					var hero = hero_info[key];
+					if (hero.main_attribute == "A") {
+						$("#hero_filter div#agility")
+								.append("<div data-hero-id=\"" + key + "\"><input name=\"" + hero.name + "\" data-hero-id=\"" + key + "\" type=\"checkbox\" checked=\"true\" /> " + hero.name + "</div>");
+						$("#hero_filter div#agility input[data-hero-id=\"" + key + "\"]").change(function(d) {
+									if ($(this).is(":checked"))
+										$("#hero_filter > input[name=\"agility\"]").prop("checked", true);
+								});
+					} else if (hero.main_attribute == "I") {
+						$("#hero_filter div#intelligence")
+								.append("<div data-hero-id=\"" + key + "\"><input name=\"" + hero.name + "\" data-hero-id=\"" + key + "\" type=\"checkbox\" checked=\"true\" /> " + hero.name + "</div>");
+						$("#hero_filter div#intelligence input[data-hero-id=\"" + key + "\"]").change(function(d) {
+									if ($(this).is(":checked"))
+										$("#hero_filter > input[name=\"intelligence\"]").prop("checked", true);
+								}); 
+					} else if (hero.main_attribute == "S") {
+						$("#hero_filter div#strength")
+								.append("<div data-hero-id=\"" + key + "\"><input name=\"" + hero.name + "\" data-hero-id=\"" + key + "\" type=\"checkbox\" checked=\"true\" /> " + hero.name + "</div>");
+						$("#hero_filter div#strength input[data-hero-id=\"" + key + "\"]").change(function(d) {
+									if ($(this).is(":checked"))
+										$("#hero_filter > input[name=\"strength\"]").prop("checked", true);
+								});
+					}
+				}
+
+				$("#hero_filter > input").change(function() {
+					var name = $(this).attr("name");
+					$("#hero_filter div#" + name + " input").prop("checked", $(this).is(":checked"));						
+				});
+
+
+				var set_side_block = function(rebuild_graph) {
+					var hero_id = $("#side_block").attr("data-hero-id");
+					if (typeof(hero_id) != "undefined") {
+						$("#side_block #hero_info h2").html(hero_info[hero_id].name);
+						if (hero_info[hero_id].main_attribute == "A") {
+							$("#side_block #hero_info #attribute_icon").attr("src", "img/icons/attributes/Icon_Agi.png");
+						} else if (hero_info[hero_id].main_attribute == "I") {
+							$("#side_block #hero_info #attribute_icon").attr("src", "img/icons/attributes/Icon_Int.png");
+						} else if (hero_info[hero_id].main_attribute == "S") {
+							$("#side_block #hero_info #attribute_icon").attr("src", "img/icons/attributes/Icon_Str.png");
+						}
+						$("#side_block #hero_info #hero_portrait").attr("src", hero_info[hero_id].portrait);
+
+						set_side_data_function(rebuild_graph);
+					}
+				}
+
+				$.getJSON("data/dota_data.json", function(data) {
+				    dotadata = data;
+
+				    var hero_data = Data.hero_overview_with_time(data);
+
+				    console.log(hero_data);
+
+				    x_scale = d3.scale.linear();
+				    var y_scale = d3.scale.linear();
+				    var pop_scale = d3.scale.linear();
+
+				    var y_axis_function = y_axis_selections[selected_y_axis].y_axis_function;
+				    var y_axis_format = y_axis_selections[selected_y_axis].y_axis_format;
+
+				    var current_time = 0;
+				    var time_window = 1;
+
+				    min_pop = -1;
+				    max_pop = -1;
+
+				    var transition_duration = 250;
+				    var transition_type = "cubic-in-out";
+
+				    var scale_to_fit = false;
+
+				    var generate_data_set = function() {
+				    	var retval = [];
+				    	var count = Object.keys(hero_data.indices).length;
+				    	var total_data_count = 0;
+				    	for (var i = current_time; i < hero_data.data.length && i < current_time + time_window; i++)
+				    		total_data_count += hero_data.data[i].data_count;
+
+				    	var pop_set = false;
+				    	for (var i = 0; i < count; i++) {
+			    			var aggregate = new Object();
+							var found_id;
+							for (var key in hero_data.indices) {
+								if (hero_data.indices[key] == i)
+									found_id = key;
+							}
+							aggregate.id = found_id;
+							aggregate.total_kills = 0;
+							aggregate.total_deaths = 0;
+							aggregate.total_assists = 0;
+							aggregate.total_kd = 0;
+							aggregate.total_kda = 0;
+							aggregate.total_ad = 0;
+							aggregate.total_last_hits = 0;
+							aggregate.total_denies = 0;
+							aggregate.total_gpm = 0;
+							aggregate.total_xpm = 0;
+							aggregate.total_hero_damage = 0; 
+							aggregate.total_tower_damage = 0;
+							aggregate.total_hero_healing = 0;
+
+							aggregate.win_count = 0;
+							aggregate.data_count = 0;
+							aggregate.total_duration = 0;
+				    		for (var j = current_time; j < hero_data.data.length && j < current_time + time_window; j++) {
+				    			if (typeof(hero_data.data[j].data[i]) != "undefined") {
+					    			for (var key in aggregate) {
+					    				if (key != "id")
+					    					aggregate[key] += hero_data.data[j].data[i][key];
+					    			}
+					    		}
+				    		}
+				    		if (j < hero_data.data.length) {
+					    		min_pop = pop_set ? Math.min(min_pop, aggregate.data_count / total_data_count) : aggregate.data_count / total_data_count;
+					    		max_pop = pop_set ? Math.max(max_pop, aggregate.data_count / total_data_count) : aggregate.data_count / total_data_count;
+					    		pop_set = true;
+					    	}
+				    		retval.push(aggregate);
+				    	}
+				    	retval.total_data_count = total_data_count;
+				    	return retval;
+				    }
+
+				    var dataset = generate_data_set();
+
+				    var update_graph = function(scale_to_fit) {
+				    	y_axis_function = y_axis_selections[selected_y_axis].y_axis_function;
+				    	y_axis_format = y_axis_selections[selected_y_axis].y_axis_format;
+
+				    	if (scale_to_fit) {
+				    		x_scale.domain(Data.find_scale(dataset, allowed_heroes, hero_data.indices, function(d) {
+						    	return d.data_count == 0 ? 0 : d.win_count / d.data_count;
+						    }));
+				    	} else {
+					    	x_scale.domain(Data.find_scale_across_time_windows(hero_data, allowed_heroes, function(d) {
+						    	return d.data_count == 0 ? 0 : d.win_count / d.data_count;
+						    }));
+					    }
+					    x_axis.scale(x_scale);
+
+
+					    if (scale_to_fit) {
+					    	y_scale.domain(Data.find_scale(dataset, allowed_heroes, hero_data.indices, y_axis_function));
+					    } else 
+				    		y_scale.domain(Data.find_scale_across_time_windows(hero_data, allowed_heroes, y_axis_function));
+				    	y_axis.scale(y_scale);
+
+				    	pop_scale.domain([min_pop, max_pop]);
+
+				    	graph.select("g.axis#x_axis")
+					    		.call(x_axis);
+
+				    	graph.select("g.axis#y_axis")
+					    		.call(y_axis)
+					    		.select("text#axis_label")
+					    		.text(selected_y_axis);
+
+
+					    graph.selectAll("g.mark")
+					    		.data(dataset)
+					    		.classed("notvisible", function(d) {
+					    			return !allowed_heroes[d.id];
+					    		})
+					    		.transition().duration(transition_duration).ease(transition_type)
+					    		.attr("transform", function(d) {
+					    			var widthdiv2 = pop_scale(d.data_count / dataset.total_data_count) / 2;
+					    			var x = x_scale(d.data_count == 0 ? 0 : d.win_count / d.data_count) - widthdiv2;
+					    			var y = y_scale(y_axis_function(d)) - widthdiv2;
+					    			return "translate(" + x + "," + y + ")";
+					    		})
+					    		.attr("data-hero-id", function(d) {
+					    			return "" + d.id;
+					    		})
+					    		.select("image")
+					    		.attr("xlink:href", function(d) {
+					    			return hero_info[d.id].icon;
+					    		})
+					    		.attr("width", function(d) {
+					    			return pop_scale(d.data_count / dataset.total_data_count);
+					    		})
+					    		.attr("height", function(d) {
+					    			return pop_scale(d.data_count / dataset.total_data_count);
+					    		});
+
+					    graph.selectAll("g.mark")
+					    		.data(dataset)
+					    		.enter()
+					    		.append("g").classed("mark", true)
+					    		.classed("notvisible", function(d) {
+					    			return !allowed_heroes[d.id];
+					    		})
+					    		.attr("transform", function(d) {
+					    			var widthdiv2 = pop_scale(d.data_count / dataset.total_data_count) / 2;
+					    			var x = x_scale(d.data_count == 0 ? 0 : d.win_count / d.data_count) - widthdiv2;
+					    			var y = y_scale(y_axis_function(d)) - widthdiv2;
+					    			return "translate(" + x + "," + y + ")";
+					    		})
+					    		.attr("data-hero-id", function(d) {
+					    			return "" + d.id;
+					    		})
+					    		.append("image")
+					    		.attr("xlink:href", function(d) {
+					    			return hero_info[d.id].icon;
+					    		})
+					    		.attr("width", function(d) {
+					    			return pop_scale(d.data_count / dataset.total_data_count);
+					    		})
+					    		.attr("height", function(d) {
+					    			return pop_scale(d.data_count / dataset.total_data_count);
+					    		})
+					    		.on("mouseover", function(d) {
+					    			d3.select(this).classed("hovered", true);
+					    		})
+					    		.on("mouseout", function() {
+					    			d3.select(this).classed("hovered", false);
+					    		})
+					    		.on("click", function(d) {
+					    			set_side_block(true);
+					    			d3.selectAll("g.mark image.selected").classed("selected", false);
+					    			d3.select(this).classed("selected", true);
+					    			$("#side_block").removeClass("notvisible");
+					    		});
+
+					    graph.selectAll("g.mark")
+					    		.data(dataset)
+					    		.exit()
+					    		.transition()
+					    		.remove();
+				    }
+
+				    $("#hero_filter input").change(function(e) {
+						calculate_filter();
+						transition_duration = 250;
+						transition_type = "cubic-in-out";
+						update_graph(scale_to_fit);
+						var hero_id = $("#side_block").attr("data-hero-id");
+						if (!allowed_heroes[hero_id]) {
+							$("#side_block").removeAttr("data-hero-id");
+							$("#side_block").addClass("notvisible");
+						}
+						set_side_block(true);
+					});
+
+					var with_pan_right = -1;
+		    		var with_pan_left = -1;
+		    		var with_x = 0;
+
+		    		var against_pan_left = -1;
+		    		var against_pan_right = -1;
+		    		var against_x = 0;
+
+		    		d3.select("#win_with_graph").append("g");
+		    		d3.select("#win_against_graph").append("g");
+
+				    set_side_data_function = function(rebuild_graph) {
+				    	var hero_id = $("#side_block").attr("data-hero-id");
+				    	var d = dataset[hero_data.indices[hero_id]];
+				    	var format_percent = d3.format(".2%");
+				    	$("#side_block #hero_info #data #y_axis_data .label").html(selected_y_axis);
+				    	$("#side_block #hero_info #data #y_axis_data .value").html(y_axis_format(y_axis_function(d)));
+				    	$("#side_block #hero_info #data #win_percent .value").html(format_percent(d.data_count == 0 ? 0 : d.win_count / d.data_count));
+				    	$("#side_block #hero_info #data #popularity .value").html(format_percent(d.data_count / dataset.total_data_count));
+
+
+				    	if (rebuild_graph) {
+				    		var best_win_with_data = Data.hero_best_win_with(dotadata, allowed_heroes, hero_id);
+				    		var best_win_against_data = Data.hero_best_win_against(dotadata, allowed_heroes, hero_id);
+
+				    		if (best_win_with_data.length >= 1) {
+
+					    		var with_y_scale = d3.scale.linear();
+					    		var padding = (-best_win_with_data[best_win_with_data.length - 1].win_percent + best_win_with_data[0].win_percent) * .1;
+					    		with_y_scale.domain([best_win_with_data[best_win_with_data.length - 1].win_percent - padding, best_win_with_data[0].win_percent]);
+					    		with_y_scale.range([140, 0]);
+
+					    		var with_graph = d3.select("#win_with_graph").classed("notvisible", false).select("g")
+					    				.on("mousemove", function() {
+					    					var mouse_x = d3.mouse(d3.select("#win_with_graph")[0][0])[0];
+					    					if (mouse_x > 270) {
+					    						if (with_pan_right == -1) {
+					    							with_pan_right = setInterval(function() {
+					    								with_x += 20;
+					    								var right = with_x + 300;
+					    								if (right > best_win_with_data.length * 34)
+					    									with_x = best_win_with_data.length * 34 - 300;
+					    								with_graph.attr("transform", "translate(" + (-with_x) + ",0)");
+					    							}, 100);
+					    						}
+					    					} else {
+					    						if (with_pan_right != -1) {
+					    							clearInterval(with_pan_right);
+					    							with_pan_right = -1;
+					    						}
+					    					}
+					    					if (mouse_x < 30) {
+					    						if (with_pan_left == -1) {
+					    							with_pan_left = setInterval(function() {
+					    								with_x -= 20;
+					    								if (with_x < 0)
+					    									with_x = 0;
+					    								with_graph.attr("transform", "translate(" + (-with_x) + ",0)");
+					    							}, 100);
+					    						}
+					    					} else {
+					    						if (with_pan_left != -1) {
+					    							clearInterval(with_pan_left);
+					    							with_pan_left = -1;
+					    						}
+					    					}
+					    				})
+					    				.on("mouseout", function() {
+					    					if (with_pan_left != -1) {
+					    						clearInterval(with_pan_left);
+					    						with_pan_left = -1;
+					    					}
+					    					if (with_pan_right != -1) {
+					    						clearInterval(with_pan_right);
+					    						with_pan_right = -1;
+					    					}
+					    				});
+					    				
+					    		var with_group = with_graph.selectAll("g.mark")
+					    				.data(best_win_with_data)
+					    				.enter()
+					    				.append("g")
+					    				.classed("mark", true)
+					    				.attr("transform", function(d, i) {
+					    					return "translate(" + (i * 34) + "," + with_y_scale(d.win_percent) + ")";
+					    				})
+							    		.on("mouseover", function(d) {
+							    			graph.select("g.mark[data-hero-id=\"" + d.id + "\"] image").classed("hovered", true);
+							    			$("#main_window g.mark[data-hero-id=\"" + d.id + "\"] image").tipsy("show");
+							    		})
+							    		.on("mouseout", function(d) {
+							    			graph.select("g.mark[data-hero-id=\"" + d.id + "\"] image").classed("hovered", false);
+							    			$("#main_window g.mark[data-hero-id=\"" + d.id + "\"] image").tipsy("hide");
+							    		})
+							    		.on("click", function(d) {
+							    			d3.select("#side_block").attr("data-hero-id", d.id);
+							    			set_side_block(true);
+							    			graph.selectAll("g.mark image.selected").classed("selected", false);
+							    			graph.select("g.mark[data-hero-id=\"" + d.id + "\"] image").classed("selected", true);
+							    			$("#main_window g.mark image.selected").tipsy("hide");
+							    			$("#side_block").removeClass("notvisible");
+							    		});
+
+					    		with_group.append("text")
+						    			.classed("label", true)
+						    			.attr("x" , 17)
+						    			.attr("y", 15)
+						    			.text(function(d) {
+						    				return d3.format("%")(d.win_percent);
+						    			});
+
+					    		with_group.append("rect")
+					    				.attr("x", 1)
+					    				.attr("y", 20)
+					    				.attr("width", 32)
+					    				.attr("height", function(d) {
+					    					return 140 - with_y_scale(d.win_percent);
+					    				})
+					    				.attr("style", function(d) {
+					    					return "fill:rgb(" + Math.round((1 - d.win_percent) * 255) + "," + Math.round(d.win_percent * 255) + ",0)";
+					    				});
+
+					    		with_group.append("image")
+					    				.attr("width", 32)
+					    				.attr("height", 32)
+					    				.attr("x", 1)
+					    				.attr("y", function(d) {
+					    					return 140 - with_y_scale(d.win_percent) + 28;
+					    				})
+					    				.attr("xlink:href", function(d) {
+							    			return hero_info[d.id].icon;
+							    		});
+
+							    var with_group = with_graph.selectAll("g.mark")
+								    	.data(best_win_with_data)
+								    	.transition()
+								    	.attr("transform", function(d, i) {
+					    					return "translate(" + (i * 34) + "," + with_y_scale(d.win_percent) + ")";
+					    				});
+
+								with_group.select("text.label")
+										.text(function(d) {
+						    				return d3.format("%")(d.win_percent);
+						    			});
+
+					    		with_group.select("rect")
+					    				.attr("height", function(d) {
+					    					return 140 - with_y_scale(d.win_percent);
+					    				})
+					    				.attr("style", function(d) {
+					    					return "fill:rgb(" + Math.round((1 - d.win_percent) * 255) + "," + Math.round(d.win_percent * 255) + ",0)";
+					    				});
+
+					    		with_group.select("image")
+					    				.attr("y", function(d) {
+					    					return 140 - with_y_scale(d.win_percent) + 28;
+					    				})
+					    				.attr("xlink:href", function(d) {
+							    			return hero_info[d.id].icon;
+							    		});
+
+							    with_graph.selectAll("g.mark")
+							    		.data(best_win_with_data)
+							    		.exit()
+							    		.transition()
+							    		.remove();
+							} else {
+								d3.select("#win_with_graph").classed("notvisible", true);
+							}
+
+							if (best_win_against_data.length >= 1) {
+
+							    var against_y_scale = d3.scale.linear();
+					    		var padding = (-best_win_against_data[best_win_against_data.length - 1].win_percent + best_win_against_data[0].win_percent) * .1;
+					    		against_y_scale.domain([best_win_against_data[best_win_against_data.length - 1].win_percent - padding, best_win_against_data[0].win_percent]);
+					    		against_y_scale.range([140, 0]);
+
+					    		var against_graph = d3.select("#win_against_graph").classed("notvisible", false).select("g")
+					    				.on("mousemove", function() {
+					    					var mouse_x = d3.mouse(d3.select("#win_against_graph")[0][0])[0];
+					    					if (mouse_x > 270) {
+					    						if (against_pan_right == -1) {
+					    							against_pan_right = setInterval(function() {
+					    								against_x += 20;
+					    								var right = against_x + 300;
+					    								if (right > best_win_against_data.length * 34)
+					    									against_x = best_win_against_data.length * 34 - 300;
+					    								against_graph.attr("transform", "translate(" + (-against_x) + ",0)");
+					    							}, 100);
+					    						}
+					    					} else {
+					    						if (against_pan_right != -1) {
+					    							clearInterval(against_pan_right);
+					    							against_pan_right = -1;
+					    						}
+					    					}
+					    					if (mouse_x < 30) {
+					    						if (against_pan_left == -1) {
+					    							against_pan_left = setInterval(function() {
+					    								against_x -= 20;
+					    								if (against_x < 0)
+					    									against_x = 0;
+					    								against_graph.attr("transform", "translate(" + (-against_x) + ",0)");
+					    							}, 100);
+					    						}
+					    					} else {
+					    						if (against_pan_left != -1) {
+					    							clearInterval(against_pan_left);
+					    							against_pan_left = -1;
+					    						}
+					    					}
+					    				})
+					    				.on("mouseout", function() {
+					    					if (against_pan_left != -1) {
+					    						clearInterval(against_pan_left);
+					    						against_pan_left = -1;
+					    					}
+					    					if (against_pan_right != -1) {
+					    						clearInterval(against_pan_right);
+					    						against_pan_right = -1;
+					    					}
+					    				});
+
+					    		var against_group = against_graph.selectAll("g.mark")
+					    				.data(best_win_against_data)
+					    				.enter()
+					    				.append("g")
+					    				.classed("mark", true)
+					    				.attr("transform", function(d, i) {
+					    					return "translate(" + (i * 34) + "," + against_y_scale(d.win_percent) + ")";
+					    				})
+					    				.on("mouseover", function(d) {
+							    			graph.select("g.mark[data-hero-id=\"" + d.id + "\"] image").classed("hovered", true);
+							    			$("#main_window g.mark[data-hero-id=\"" + d.id + "\"] image").tipsy("show");
+							    		})
+							    		.on("mouseout", function(d) {
+							    			graph.select("g.mark[data-hero-id=\"" + d.id + "\"] image").classed("hovered", false);
+							    			$("#main_window g.mark[data-hero-id=\"" + d.id + "\"] image").tipsy("hide");
+							    		})
+							    		.on("click", function(d) {
+							    			d3.select("#side_block").attr("data-hero-id", d.id);
+							    			set_side_block(true);
+							    			graph.selectAll("g.mark image.selected").classed("selected", false);
+							    			graph.select("g.mark[data-hero-id=\"" + d.id + "\"] image").classed("selected", true);
+							    			$("#main_window g.mark image.selected").tipsy("hide");
+							    			$("#side_block").removeClass("notvisible");
+							    		});
+
+					    		against_group.append("text")
+						    			.classed("label", true)
+						    			.attr("x" , 17)
+						    			.attr("y", 15)
+						    			.text(function(d) {
+						    				return d3.format("%")(d.win_percent);
+						    			});
+
+					    		against_group.append("rect")
+					    				.attr("x", 1)
+					    				.attr("y", 20)
+					    				.attr("width", 32)
+					    				.attr("height", function(d) {
+					    					return 140 - against_y_scale(d.win_percent);
+					    				})
+					    				.attr("style", function(d) {
+					    					return "fill:rgb(" + Math.round((1 - d.win_percent) * 255) + "," + Math.round(d.win_percent * 255) + ",0)";
+					    				});
+
+					    		against_group.append("image")
+					    				.attr("width", 32)
+					    				.attr("height", 32)
+					    				.attr("x", 1)
+					    				.attr("y", function(d) {
+					    					return 140 - against_y_scale(d.win_percent) + 28;
+					    				})
+					    				.attr("xlink:href", function(d) {
+							    			return hero_info[d.id].icon;
+							    		});
+
+							    var against_group = against_graph.selectAll("g.mark")
+								    	.data(best_win_against_data)
+								    	.transition()
+								    	.attr("transform", function(d, i) {
+					    					return "translate(" + (i * 34) + "," + against_y_scale(d.win_percent) + ")";
+					    				});
+
+								against_group.select("text.label")
+										.text(function(d) {
+						    				return d3.format("%")(d.win_percent);
+						    			});
+
+					    		against_group.select("rect")
+					    				.attr("height", function(d) {
+					    					return 140 - against_y_scale(d.win_percent);
+					    				})
+					    				.attr("style", function(d) {
+					    					return "fill:rgb(" + Math.round((1 - d.win_percent) * 255) + "," + Math.round(d.win_percent * 255) + ",0)";
+					    				});
+
+					    		against_group.select("image")
+					    				.attr("y", function(d) {
+					    					return 140 - against_y_scale(d.win_percent) + 28;
+					    				})
+					    				.attr("xlink:href", function(d) {
+							    			return hero_info[d.id].icon;
+							    		});
+
+							    against_graph.selectAll("g.mark")
+							    		.data(best_win_against_data)
+							    		.exit()
+							    		.transition()
+							    		.remove();
+
+						    } else {
+								d3.select("#win_against_graph").classed("notvisible", true);
+							}
+
+				    	}
+
+				    }
+
+				    x_scale.domain(Data.find_scale_across_time_windows(hero_data, allowed_heroes, function(d) {
+				    	return d.data_count == 0 ? 0 : d.win_count / d.data_count;
+				    }));
+				    x_scale.range([80, width - 40]);
+
+				    y_scale.domain(Data.find_scale_across_time_windows(hero_data, allowed_heroes, y_axis_function));
+				    y_scale.range([height - 80, 40]);
+
+				    pop_scale.domain([min_pop, max_pop]);
+				    pop_scale.range([20, 64]);
+
+				    var graph = d3.select("#main_window");
+
+				    var x_axis = d3.svg.axis();
+				    var y_axis = d3.svg.axis();
+				    x_axis.scale(x_scale).ticks(8).tickSize(-height + 120, 0, 0).tickFormat(d3.format("%"));
+				    y_axis.scale(y_scale).tickSize(-width + 120, 0, 0).tickFormat(y_axis_format);
+
+				    x_axis.orient("bottom");
+				    y_axis.orient("left");
+
+				    graph.append("g")
+				    		.attr("id", "x_axis")
+				    		.classed("axis", true)
+				    		.attr("transform", "translate(0," + (height - 80) + ")")
+				    		.call(x_axis)
+				    		.append("text")
+				    		.attr("id", "axis_label")
+				    		.attr("x", width / 2)
+				    		.attr("y", 30)
+				    		.text("Win Percentage");
+
+				    graph.append("g")
+				    		.attr("id", "y_axis")
+				    		.classed("axis", true)
+				    		.attr("transform", "translate(80,0)")
+				    		.call(y_axis)
+				    		.append("text")
+				    		.attr("id", "axis_label")
+				    		.attr("transform", "translate(-70," + (height / 2) + "),rotate(270)")
+				    		.text(selected_y_axis);
+
+				    graph.selectAll("g.mark")
+				    		.data(dataset)
+				    		.enter()
+				    		.append("g").classed("mark", true)
+				    		.classed("notvisible", function(d) {
+				    			return !allowed_heroes[d.id];
+				    		})
+				    		.attr("transform", function(d) {
+				    			var widthdiv2 = pop_scale(d.data_count / dataset.total_data_count) / 2;
+				    			var x = x_scale(d.data_count == 0 ? 0 : d.win_count / d.data_count) - widthdiv2;
+				    			var y = y_scale(y_axis_function(d)) - widthdiv2;
+				    			return "translate(" + x + "," + y + ")";
+				    		})
+				    		.attr("data-hero-id", function(d) {
+				    			return "" + d.id;
+				    		})
+				    		.append("image")
+				    		.attr("xlink:href", function(d) {
+				    			return hero_info[d.id].icon;
+				    		})
+				    		.attr("width", function(d) {
+				    			return pop_scale(d.data_count / dataset.total_data_count);
+				    		})
+				    		.attr("height", function(d) {
+				    			return pop_scale(d.data_count / dataset.total_data_count);
+				    		})
+				    		.on("mouseover", function(d) {
+				    			d3.select(this).classed("hovered", true);
+				    		})
+				    		.on("mouseout", function() {
+				    			d3.select(this).classed("hovered", false);
+				    		})
+				    		.on("click", function(d) {
+				    			d3.select("#side_block").attr("data-hero-id", d.id);
+				    			set_side_block(true);
+				    			d3.selectAll("g.mark image.selected").classed("selected", false);
+				    			d3.select(this).classed("selected", true);
+				    			$("#side_block").removeClass("notvisible");
+				    		});
+
+				    $('#main_window g.mark image').tipsy({ 
+				        gravity: 'sw', 
+				        html: false, 
+				        title: function() {
+				          var d = this.__data__;
+				          return hero_info[d.id].name; 
+				        }
+				    });
+
+				    $("select#y_axis_selection_list").change(function(e) {
+				    	selected_y_axis = $("select#y_axis_selection_list option[value=" + $(this).val() + "]").text();
+				    	transition_duration = 250;
+				    	transition_type = "cubic-in-out";
+				    	update_graph(scale_to_fit);
+				    	set_side_block();
+				    });
+
+				    var playing = -1;
+
+				    $("#play_button").click(function() {
+				    	if (playing == -1) {
+				    		if (current_time + time_window >= hero_data.data.length) {
+				    			// current_time = 0;
+				    			time_window = 0;
+				    			$("#time_controls #current_time").html(9 + time_window);
+				    		}
+				    		playing = setInterval(function() {
+				    			time_window++;
+				    			if (current_time + time_window >= hero_data.data.length) {
+				    				clearInterval(playing);
+				    				playing = -1;
+				    				$("#play_button").html("Play");
+				    			}
+				    			$("#time_controls #current_time").html(9 + time_window);
+				    			dataset = generate_data_set();
+				    			transition_duration = 800;
+				    			transition_type = "linear";
+				    			scale_to_fit = false;
+				    			update_graph(scale_to_fit);
+				    			set_side_block();
+				    		}, 800);
+				    		$(this).html("Pause");
+				    	} else {
+				    		clearInterval(playing);
+				    		playing = -1;
+				    		$(this).html("Play");
+				    	}
+				    });
+
+				    $("#scale_toggle").click(function() {
+				    	transition_duration = 250;
+						transition_type = "cubic-in-out";
+						scale_to_fit = true;
+				    	update_graph(scale_to_fit);
+				    });
+
+				});
+			});
+
+			$(document).mousemove(function(e) {
+			    $("#hero_label").css({left:e.pageX, top:e.pageY});
+			});
+	
+		});
+	</script>
+</body>
+
+
+
+
+</div>
+
+
+	
+</footer>
+		<div class="gallery-wrapper"></div>
+
+		<div id="preloader">
+			<div id="status">
+				<div class="loading-wrapper">
+					<img src="img/dlogo1.png" alt="Loading"/>
+				</div>
+			</div>
+			<div id="status-loaded"></div>
+		</div>
+
+		<script src="js/browser.js"></script>
+		<script src="js/jquery.ba-throttle-debounce.min.js"></script>
+		<script src="js/jquery.smooth-scroll.js"></script>
+		<script src="js/matchmedia.js"></script>
+		<script src="js/enquire.min.js"></script>
+		<script src="js/jquery.velocity.min.js"></script>
+		<script src="js/waypoints.js"></script>		
+		<script src="js/owl.carousel.js"></script>
+		<script src="js/jquery.mb.YTPlayer.js"></script>
+		<script src="js/jquery.parallaxify.js"></script>
+		<script src="js/jquery.imagesloaded.js"></script>
+		<script src="js/jquery.unveil.min.js"></script>
+		<script src="js/jquery.superslides.min.js"></script>
+		<script src="js/jquery.fullPage.min.js"></script>
+		<script src="js/jquery.mixitup.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
+
+

@@ -1,0 +1,109 @@
+/* 9. Single post section */
+/* ------------------------------------------------------ */
+#post, #post2 { 
+	.post-content {
+		h3 { letter-spacing: 2px;}
+		.post-author { font-weight: 600; 
+			a { display: inline-block;
+				&:first-of-type { position: relative; padding-right: 10px; margin-right: 5px; text-transform: capitalize;
+					&:after { content: '|'; width: 1px; height: 20px; position: absolute; right: 0; top: 0;}
+				}
+			}
+		}
+	}
+	.post-text { 
+		article { overflow: hidden; margin-bottom: 30px;}
+		header p { font-weight: 600;}
+	}
+	.sm-image { width: 250px; height: auto; }
+	.sm-image2 { width: 400px; height: auto; }
+	.sm-image3 { width: 300px; height: auto; }
+	.message-success { right: 15px; max-width: 185px;}
+}
+
+.comments-content { overflow: hidden; position: relative; margin: 30px 0;
+	.comment-author { display: table;
+		span { display: block; font-size: 18px;
+			&:first-of-type { font-weight: 600;}
+			&:nth-of-type(2) { font-size: 16px; color: lighten(@textColor, 50%); text-align: left;}
+		}
+
+		.author { display: table-cell; vertical-align: middle; text-align: center; padding-left: 30px;}
+		.avatar { width: 70px; height: 70px; display: table-cell; vertical-align: middle; }
+		figure, img { width: 100%; display: block;}
+		img { height: auto; border-radius: 50%;}
+		figure { height: 100%;}
+	}
+	.comment-text { margin: 15px 0;}
+}
+
+#post2 {
+	.post { padding: 0; margin: 0; position: relative;}
+	.post figure, .post img { display: block; width: 100%; height: auto;}
+	.post-text { margin-top: 30px; }
+	.post-header { text-align: center; padding: 30px 0; background: @bgColor2; color: @textColor2; letter-spacing: 4px;
+		a, span { color: @textColor2; .lh-transition(color .3s);}
+		.date { font-size: 16px; font-weight: 600; display: block; margin-bottom: 30px; }
+		h1 { font-size: 24px;
+			&:after { content: ''; display: block; height: 2px; width: 30px; position: absolute; bottom: -30px; left: 50%; margin-left: -15px; background: @textColor2; }
+		}
+		.post-author { font-weight: 600; 
+			a { display: inline-block;
+				&:first-of-type { position: relative; padding-right: 10px; margin-right: 5px; text-transform: capitalize;
+					&:after { content: '|'; width: 1px; height: 20px; position: absolute; right: 0; top: 0;}
+				}
+			}
+		}
+	}
+}
+
+/* Single post mediaqueries */
+/* ------------------------------------------------------ */
+@media (min-width: @screen-sm-min) { 
+	#post, #post2 { 
+		.post-text { margin-top: 90px; margin-bottom: 90px;
+			p { font-size: 16px; }
+		}
+		.post-content > div { margin: 0 auto;}
+	}
+	.comments-content { padding: 60px 0; display: table; width: 100%; position: relative; border-bottom: 1px solid @borderColor; margin: 0;
+		.comment-author { width: 50%; position: absolute; right: 0; height: 100%; display: block; padding: 0 30px; top: 0;
+			> div { display: table; width: 100%; height: 100%;
+				> div { display: table-cell; vertical-align: middle; text-align: left;}
+			}
+			.author, .avatar { display: inline-block;}
+			.avatar { width: 100px; height: 100px;}
+		}
+		.comment-text { width: 50%; text-align: right; 
+			p {  margin-bottom: 0; padding: 0 30px; font-size: 16px; }
+		}
+		&:last-of-type { border: none;}
+		&:nth-child(2n-1) { 
+			.comment-author { left: 0;
+				> div > div { text-align: right;}
+				.author, .avatar { float: right;}
+				.author { margin-top: 22px; margin-right: 30px;
+					span { text-align: right;}
+				}
+			}
+			.comment-text { float: right; text-align: left;}
+		}
+	}
+	.comments { margin-top: 30px; margin-bottom: 30px;}
+
+	#post2 { 
+		.post-header { text-align: center; padding: 60px 0; background: @bgColor2; color: @textColor2; letter-spacing: 4px;
+			a, span { color: @textColor2; .lh-transition(color .3s);}
+			.date { font-size: 16px; font-weight: 600; display: block; margin-bottom: 30px; }
+			h1 { margin-bottom: 60px; position: relative; padding: 0; margin-top: 0; font-size: 48px;
+				&:after { content: ''; display: block; height: 2px; width: 30px; position: absolute; bottom: -30px; left: 50%; margin-left: -15px; background: @textColor2; }
+			}
+			a { 
+				&:hover { color: @highlightColor; }
+			}
+		}
+	}
+}
+
+/* End of single post section */
+/* ------------------------------------------------------ */

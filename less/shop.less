@@ -1,0 +1,136 @@
+/* 13. Shop section */
+/* ------------------------------------------------------ */
+.shop {
+	.shop-button { margin-top: 10px;
+		a { text-transform: uppercase;}
+	}
+	
+	.item-description {
+		a { color: @textColor; .lh-transition(color .3s);
+			&:hover { color: @highlightColor; }
+		}
+		p { .hidden-sm}
+	}
+
+	.shop-list { width: 100%;
+		ul { background: @bgColor3; position: relative; overflow: hidden; text-align: center; margin-bottom: 0;
+			li { float: left; width: 50%; 
+				a { color: @textColor; padding: 20px 15px; font-weight: 400; font-size: 14px; position: relative; cursor: pointer; text-transform: capitalize; display: block;}
+			}
+		}
+		.shopping a { 
+			&:before { position: absolute; top: 35px; left: 50%; color: transparent; content: '•'; text-shadow: 0 0 transparent; font-size: 0.7em; .lh-transform(translate(-50%,0)); .lh-transition(transform .3s, color .3s, text-shadow .3s); pointer-events: none; font-weight: 400;}
+			&:hover {
+				&:before { color: @textColor; text-shadow: 10px 0 @textColor, -10px 0 @textColor;}
+			}
+		}
+	}
+
+	.shopping-cart { z-index: 10; .lh-transition( background-color .3s);
+		.cart { text-transform: capitalize; color: @highlightColor; }
+		.show-cart { position: absolute; border: 1px solid @borderColor; width: 320px; padding: 15px; top: 100%; right: 0; text-align: left; border-top: none; box-shadow: 1px 1px 2px 0px fade(@bgColor2, 30%); .lh-opacity(0); .lh-transition(opacity .3s 0s, visibility 0s .3s); visibility: hidden; -webkit-backface-visibility: hidden;
+			li { display: block; background: inherit; padding: 0; margin-left: 0; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid @borderColor;
+				.img-product { width: 55px; height: 55px; display: block; float: left; padding: 0;
+					&:after { content: ''; display: block; position: absolute; left: 0; top: 0; height: 100%; width: 100%; background: @bgColor2; .lh-opacity(0); .lh-transition(opacity .3s); .lh-backface-visibility(hidden);}
+					&:hover { 
+						&:after { opacity: 0.7 }
+					}
+					figure, img { width: 100%; display: block; }
+					img { height: auto; border: 1px solid @borderColor; }
+				}
+				&:last-child, &:nth-last-child(2) { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+				.list-product { overflow: hidden; margin-left: 70px; position: relative; 
+					a { padding: 0; }
+					h5 { margin-top: 5px; margin-bottom: 5px; padding-right: 30px; .lh-transition(color .3s); cursor: pointer;
+						&:hover { color: @highlightColor; }
+					}
+					.quantity { float: left; width: 25px; height: 25px; font-size: 14px; text-align: center; line-height: 23px; border: 1px solid @borderColor;}
+					.price-product { margin-left: 45px; font-size: 14px; font-weight: 600; line-height: 25px; color: @highlightColor; }
+					.remove-product { position: absolute; width: 20px; height: 20px; top: 50%; margin-top: -10px; right: 0; text-align: center; cursor: pointer;
+						i { color: @textColor; line-height: 20px; font-size: 18px; .lh-transition(color .3s)}
+					}
+				}
+				&.summation { border-top: 2px solid @bgColor2; margin-top: 15px;
+					.summation-subtotal { overflow: hidden; margin-top: 5px; overflow: hidden;
+						span { padding: 0; cursor: initial; font-weight: 600; float: left;  
+							&:before { display: none !important}
+						}
+						.amount { float: right;}
+					}
+					.btn-cart {	 margin-top: 15px; -webkit-backface-visibility: hidden; 
+						button { width: 48%;
+							a { }
+							&:first-child { margin-right: 10px; float: left; }
+							&:nth-child(2) { float: right;  }
+							&:hover a { }
+						}
+					}
+				}
+			}
+		}
+	}
+	.product-gallery.menu-item>a img { .lh-opacity(1); }
+}	
+
+.btn-cart button {
+	&:hover a { color: @highlightColor;}
+	a { padding: 0 !important; color: inherit !important; }
+}
+
+
+.rating { color: @highlightColor; margin-bottom: 10px; letter-spacing: 5px;
+	&.rating-select { cursor: pointer; }
+	> span { position: relative;  overflow: hidden;
+		&:before { content: "\f006\f006\f006\f006\f006"; font-family: 'fontAwesome' !important; margin-right: -5px; }
+		span { position: absolute; left: 0; top: 0; height: 100%; line-height: 25px;
+			&:after { content: "\f005\f005\f005\f005\f005"; position: absolute; top: -3px; left: 0; font-family: 'fontAwesome' !important; width: 100%; margin-right: -5px; overflow: hidden; white-space: nowrap; }
+		}
+	}
+}
+
+/* Shop mediaqueries */
+/* ------------------------------------------------------ */
+@media (max-width: @screen-xs-max) { 
+	.shop .product-gallery.menu-item>a { margin-top: 15px; margin-bottom: 30px; }
+
+}
+@media (min-width: @screen-sm-min) { 
+	.shop { 
+		.item-description { display: block; position: absolute; left: 0; width: 50%; height: 100%;  padding: 0 15px;
+			>div { display: table; height: 100%; width: 100%;
+				>div { display: table-cell; vertical-align: middle; text-align: center;}
+			}
+			&:after { content: ''; display: block; height: 30px; width: 30px; position: absolute; top: 50%; right: -30px; left: auto; border-right: none; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 15px solid; margin-top: -15px; z-index: 3;   }
+			h6 { margin-bottom: 5px; }
+			p { margin-bottom: 0; }
+			.price { padding: 10px 0; }
+		}
+
+		.shop-list { width: auto;
+			ul { background: @bgColor; overflow: inherit; padding-left: 15px; margin-left: 15px; position: relative; 
+				li { width: auto; float: none; display: inline-block;
+					&:hover {
+						a:before { color: @textColor; text-shadow: 10px 0 @textColor, -10px 0 @textColor; }
+					}
+				}
+			}
+			> ul:before { content: ''; width: 1px; height: 20px; background: @textColor; position: absolute; top: 50%; margin-top: -10px; left: 0;}
+		}
+		
+		.shopping-cart {  background: @bgColor;
+			.cart { .lh-transition(color .3s); }
+			&:hover { background-color: @bgColor2;
+				.cart { color: @textColor2;}
+				.show-cart { .lh-transition-delay(0s, 0s); opacity: 1; visibility: visible; }
+			}
+			.show-cart .list-product .remove-product {
+				&:hover { 
+					i { color: @highlightColor;}
+				}
+			}
+		}
+	}
+}
+
+/* End of shop section */
+/* ------------------------------------------------------ */

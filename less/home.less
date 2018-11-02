@@ -1,0 +1,93 @@
+/* 6. Home page */
+/* ------------------------------------------------------ */
+.home { width: 100%; overflow: hidden; height: 100%; position: relative; z-index: 10; background-color: @bgColor2; 
+	.home-fullscreen { background-size: cover; width: 100%; }
+	.basic-info { position: absolute; bottom: 90px; margin-left: 15px; opacity: 1; z-index: 10;
+		&.static { position: static; 
+			div { margin: 15px auto; }
+		}
+		div { margin: 15px 0;}
+		span { font-weight: 400; color: @textColor2; display: block; letter-spacing: 1px; .lh-transition(color .3s);
+			a { color: @textColor2; .lh-transition(color .3s)}
+			&.day { font-weight: 700; }
+		}
+		.social-icon { margin: 30px 0; display: block;
+			li { display: inline-block; margin: 0 5px;
+				a { padding: 5px; color: @textColor2; .lh-transition(color .3s); }
+			}
+		}	
+	}
+}
+
+.home-classic { display: table; width: 100%; height: 100%; color: @textColor2;
+	.home-classic-wrapper { display: table-cell; vertical-align: middle; text-align: center; }
+}
+
+.home-page .to-the-top { display: none;}
+
+#home {
+	.home-parallax { position: absolute; height: 100%; width: 100%; left: 0; top: 0; z-index:-1; overflow: hidden !important; 
+		.parallax-layer { width: 120%; height: 120%; position: absolute; left: -10%; top:-10%;  background-size: cover; background-position: center center }
+	}
+}
+
+#home3 {
+	.home-fullscreen { position: relative;}
+	.video-controls { overflow: hidden; bottom: 0px; right: 30px; left: auto;  
+		div { float: left; margin-right: 10px;
+			i { color: @textColor2; cursor: pointer; .lh-transition(color .3s); }
+			&:hover { 
+				i { color: @highlightColor; }
+			}
+		}
+	}
+	.basic-info { width: 100%; }
+}
+
+#home4 .basic-info .btn { width: 200px; }
+
+.mobile-basic-info { position: relative; z-index: 20; height: 100%; 
+	&:after { content: ''; display: block; position: absolute; z-index: -1; left: 0; top: 0; height: 100%; width: 100%; background: @bgColor2; .lh-opacity(0.9); }
+	.back-to-top { display: none; }
+	#footer { background: transparent; }
+}
+
+.home-bg-image { position: absolute; height: 100%; width: 100%; left: 0; top: 0; z-index:-1; overflow: hidden !important; background-image: url('http://placehold.it/1440x900'); background-size: cover; background-position: center center; }
+
+/* Home page mediaqueries */
+/* ------------------------------------------------------ */
+@media (min-width: @screen-sm-min) {
+	.home-fullscreen { height: 100%;
+		.home-fullscreen { height: 100%; }
+		.basic-info { top: 50%; bottom: initial; margin-top: 40px; }
+	}
+	.home { position: relative;
+		.social-icon li a {
+			&:hover { color: @highlightColor; }
+		}
+		.basic-info { bottom: 0;
+			.mobile:hover, .email:hover { color: @highlightColor;
+				a { color: @highlightColor}
+			} 
+		} 
+	}
+	.home-page .to-the-top { display: block;}
+
+	#home2 {
+		.basic-info { top: 50%; bottom: 0; width: 100%;
+			.custom-navigation { position: absolute; z-index: 120; right: 30px; bottom: 15px; 
+				.prev { margin-right: 15px; }
+				.prev, .next { font-size: 28px; padding: 0 15px; position: relative; left: 0; height: auto; width: auto; bottom: 0; opacity: 1; display: inline-block; color: @textColor2; pointer-events: initial; .lh-transition(color .3s);
+					i { font-size: 24px; }
+					&:hover { color: @highlightColor; }
+				}
+			}
+		}
+		.slides-container li { 
+			&:after { content: ""; width: 100%; height: 100%; position: absolute; top: 0; left: 0; background: @bgColor2; opacity: 0.6; }
+		}
+	}
+}
+
+/* End of home page */
+/* ------------------------------------------------------ */

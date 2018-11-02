@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BergTheme Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link rel="stylesheet" href="less/custom.css">
+		<link href='http://fonts.useso.com//css?family=Open+Sans:400,300,600&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<script src="js/jquery-2.1.0.min.js"></script>
+		<script src="js/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="col-md-12">
+                <section class="header">
+                    <h1><span>Berg HTML</span> documentation</h1>
+
+                </section>
+            </div>
+
+<div class="col-md-3">
+	<ul class="docs-nav">
+	
+		<li>
+			<a href="index.html" class="">Start</a>
+		</li>
+		<li>
+			<a href="grid.html" class="">Grid</a>
+		</li>
+		<li>
+			<a href="styles.html" class="">Styles</a>
+		</li>
+		<li>
+			<a href="navbar.html" class="">Navbar</a>
+		</li>
+		<li>
+			<a href="intro-section.html" class="">Intro section</a>
+		</li>
+		<li>
+			<a href="home.html" class="">Home</a>
+		</li>
+		<li>
+			<a href="blog.html" class="">Blog</a>
+		</li>
+		<li>
+			<a href="restaurant.html" class="">Restaurant</a>
+		</li>
+		<li>
+			<a href="menu.html" class="">Menu</a>
+		</li>
+		<li>
+			<a href="reservation.html" class="">Reservation</a>
+		</li>
+		<li>
+			<a href="contact.html" class="">Contact</a>
+		</li>
+		<li>
+			<a href="shop.html" class="active">Shop</a>
+		</li>
+		<li>
+			<a href="gallery.html" class="">Gallery</a>
+		</li>
+		<li>
+			<a href="typography.html" class="">Typography</a>
+		</li>
+		<li>
+			<a href="animations.html" class="">Animations</a>
+		</li>
+		<li>
+			<a href="authoring_info.html" class="-info">Authoring info</a>
+		</li>					
+		<li>
+			<a href="credits.html" class="">Credits</a>
+		</li>
+	</ul>
+</div>
+
+<div class="col-md-9">
+	<section class="main-content">
+		<h2>Shop</h2>
+		<hr/>
+
+		<p>
+		The shop view looks like menu page, so do you want to know how to insert your data? Read <a href="menu.html">menu</a>.
+		</p>
+
+		<pre>
+		...
+		&lt;div class="menu-item"&gt;
+			&lt;a href="product.html" class="hidden-xs unveil"&gt;
+				&lt;figure&gt;
+					&lt;img src="img/placeholder.png" data-src="img/food/1.jpg" alt="Menu item"/&gt;
+					&lt;div class="actions"&gt;
+						&lt;i class="icon-magnifier-add"&gt;&lt;/i&gt;
+					&lt;/div&gt;
+				&lt;/figure&gt;
+			&lt;/a&gt;
+			&lt;div class="item-description"&gt;
+				&lt;div class=""&gt;
+					&lt;div class=""&gt;
+						&lt;div class="rating"&gt;
+							&lt;span&gt;&lt;span style="width: 80%"&gt;&lt;/span&gt;&lt;/span&gt;
+						&lt;/div&gt;
+						&lt;a href="product.html"&gt;&lt;h6&gt;Burbon Chicken&lt;/h6&gt;&lt;/a&gt;
+						&lt;p&gt;200g&lt;/p&gt;
+						&lt;div class="price"&gt;
+							&lt;span class="old-price"&gt;$24.90&lt;/span&gt;
+							&lt;span class="new-price item-price"&gt;$22.90&lt;/span&gt;
+						&lt;/div&gt;
+						&lt;div class="shop-button"&gt;&lt;a href="product.html" class="btn btn-default btn-sm"&gt;buy now&lt;/a&gt;&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		...
+		</pre>
+
+		<h3>Shopping cart view</h3>
+		<p>
+		We presented a sample view shopping cart with added products. Remember it's only view, not working shop. The cart content you find in <strong>cart.html</strong>. We created 2 cart views, a small view shows on hover at the list category and main cart view. If you want to change styles check <strong>cart.less</strong> or read more <a href="styles.html">styles</a>.
+		</p>
+
+		<pre>
+		<strong>small cart view</strong>
+		&lt;li class="shop-list"&gt;
+			&lt;ul&gt;
+				&lt;li class="shopping"&gt;
+					&lt;a href="cart.html"&gt;Checkout&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;li class="shopping"&gt;
+					&lt;a href="#"&gt;Wishlist&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;li class="shopping"&gt;
+					&lt;a href="#"&gt;Login&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;li class="shopping-cart"&gt;
+					&lt;a href="cart.html" class="cart"&gt;Cart&lt;/a&gt;
+					&lt;ul class="show-cart"&gt;
+						&lt;li class="product"&gt;
+							&lt;a href="product.html" class="img-product"&gt;
+								&lt;figure&gt;&lt;img src="img/food/1.jpg"/&gt;&lt;/figure&gt;
+							&lt;/a&gt;
+							&lt;div class="list-product"&gt;
+								&lt;a href="product.html"&gt;&lt;h5&gt;Burbon Chicken&lt;/h5&gt;&lt;/a&gt;
+								&lt;div class="quantity"&gt;1&lt;/div&gt;
+								&lt;div class="price-product"&gt;$22.90&lt;/div&gt;
+								&lt;div class="remove-product"&gt;&lt;i class="icon-close"&gt;&lt;/i&gt;&lt;/div&gt;
+							&lt;/div&gt;
+						&lt;/li&gt;
+		...
+
+		<strong>main cart view</strong>
+		...
+		&lt;div class="row cart-item"&gt;
+			&lt;div class="col-xs-4 col-sm-5 product-name"&gt;
+				&lt;a href="product.html" class="product-thumbnail"&gt;&lt;img src="img/food/th1.jpg" class="" alt=""&gt;&lt;/a&gt;	
+				&lt;a href="product.html" class="name"&gt;Burbon Chicken&lt;/a&gt;
+				&lt;span&gt;Size: M&lt;/span&gt;							
+				&lt;span&gt;Color: Red&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;div class="col-xs-2 product-position product-price"&gt;
+				&lt;span class="amount"&gt;$22.90&lt;/span&gt;		
+			&lt;/div&gt;
+			&lt;div class="col-xs-2 product-position product-quantity"&gt;
+				&lt;div class="quantity"&gt;
+					&lt;input type="text" step="1" name="" value="1" title="Qty" class="input-text qty text" size="4"&gt;
+					&lt;input type="button" value="+" class="plus hidden-xs"&gt;
+					&lt;input type="button" value="-" class="minus hidden-xs"&gt;
+				&lt;/div&gt;		
+			&lt;/div&gt;
+			&lt;div class="col-xs-2 product-position product-subtotal"&gt;
+				&lt;span class="amount"&gt;$22.90&lt;/span&gt;		
+			&lt;/div&gt;
+			&lt;div class="col-xs-1 product-position product-remove"&gt;
+				&lt;a href="#" class="remove" data-djax-exclude="true" title="Remove this item"&gt;&lt;i class="icon-close"&gt;&lt;/i&gt;&lt;/a&gt;	
+			&lt;/div&gt;
+		&lt;/div&gt;
+		...
+		</pre>
+
+		<h3>Single product</h3>
+		<p>The product page is a view gallery product with full description product and reviews. To add product photos insert url image in <strong>product.html</strong>. More information about lightbox check <a href="gallery.html">here</a>. </p>
+
+		<pre>
+		&lt;div class="product-photos"&gt;
+			&lt;a href="img/blog/post1.jpg" class="open-overlay" rel="product"&gt;
+				&lt;figure&gt;
+					&lt;img src="img/blog/post1.jpg" alt="product item"/&gt;
+					&lt;div class="actions"&gt;
+						&lt;i class="icon-magnifier-add"&gt;&lt;/i&gt;
+					&lt;/div&gt;
+				&lt;/figure&gt;
+			&lt;/a&gt;
+		...
+		</pre>
+
+		<p>To change a main product photo or add data product, find class "product-gallery" and fill the appropriate place.</p>
+
+		<pre>
+		&lt;div class="product-gallery menu-item"&gt;
+			&lt;a href="img/blog/blog2.jpg" class="open-overlay" rel="product"&gt;
+				&lt;figure&gt;
+					&lt;img src="img/blog/blog2.jpg" alt="product item"/&gt;
+					&lt;div class="actions"&gt;
+						&lt;i class="icon-magnifier-add"&gt;&lt;/i&gt;
+					&lt;/div&gt;
+				&lt;/figure&gt;
+			&lt;/a&gt;
+			&lt;div class="product item-description"&gt;
+				&lt;div class=""&gt;
+					&lt;div class=""&gt;
+						&lt;div class="rating"&gt;
+							&lt;span&gt;&lt;span style="width:80%"&gt;&lt;/span&gt;&lt;/span&gt;
+						&lt;/div&gt;
+						&lt;h6&gt;Burbon Chicken&lt;/h6&gt;
+						&lt;div class="product-category"&gt;Category: &lt;a href="#"&gt;food&lt;/a&gt; / &lt;a href="#"&gt;chicken&lt;/a&gt;&lt;/div&gt;
+						&lt;p&gt;Quisque luctus semper auctor. Duis mattis tristique blandit. Aliquam euismod pellentesque justo ac aliquet.&lt;/p&gt;
+						&lt;div class="price"&gt;
+							&lt;span class="old-price"&gt;$24.90&lt;/span&gt;
+							&lt;span class="new-price item-price"&gt;$22.90&lt;/span&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		...
+		</pre>
+
+		<p>Reviews section includes last reviews and review form view. We used owl carousel to show last reviews with author and rating. Slides play automatically but if you want you can change slider option in <strong>main.js</strong>. </p>
+
+		<pre>
+		<strong>reviews content</strong>
+		&lt;div class="owl-carousel" id="reviews-carousel"&gt;
+			&lt;div class="item"&gt;
+				&lt;div class="reviews-author"&gt;
+					&lt;span&gt;John Doe&lt;/span&gt;
+					&lt;div class="rating"&gt;
+						&lt;span&gt;&lt;span style="width: 100%"&gt;&lt;/span&gt;&lt;/span&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class="reviews-text"&gt;
+					&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ornare turpis urna, ut tincidunt elit molestie ut. Nulla aliquam varius dapibus. Phasellus cursus nibh consequat facilisis molestie. Duis eu erat rutrum mauris elementum aliquam sed tempus dolor. 
+					&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		...
+
+		<strong>options slider</strong>
+		var reviews = {
+			init: function() {
+
+				var that = this;
+				var owl = $("#reviews-carousel");
+				
+				owl.owlCarousel({
+					items: 1,
+					loop:true,
+					margin:10,
+					nav:true,
+					autoplay:true,
+					autoplayTimeout:5000,
+					autoplayHoverPause:true,
+					autoplaySpeed: 1500,
+					navText: ['&lt;i class="icon-arrow-left"&gt;&lt;/i&gt;', '&lt;i class="icon-arrow-right"&gt;&lt;/i&gt;'],
+					dots: false,
+		</pre>
+	</section>
+</div>
+<section class="footer">
+	created by <a href="http://yosoftware.com">yosoftware</a>
+</section>

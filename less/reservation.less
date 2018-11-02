@@ -1,0 +1,32 @@
+/* 10. Reservation section */
+/* ------------------------------------------------------ */
+#reservation {
+	h2 { position: relative; font-weight: 700; }
+	
+	.date, .time { overflow: hidden; 
+		input { float: left; width: calc(30% - 2em); position: relative; }
+	}
+	.main-section { position: relative; .lh-transition(top .3s, height .3s); z-index: 1;
+		.reservation-content { background: @bgColor;}
+	}
+	.v-card > div span { display: block; font-size: 16px; }
+	.open-daily { margin: 30px 0; 
+		li { margin-bottom: 15px; }
+		span { display: block; }
+		.day { font-weight: 600; }
+	}
+	select { .lh-appearance(none); padding-right: 0; }
+	.captcha-input { width: 100%; }
+	.button-send { margin: 15px 0; }
+	
+}
+/* Reservation mediaqueries */
+/* ------------------------------------------------------ */
+@media (min-width: @screen-sm-min) { 
+	#reservation {
+		.reservation-content { padding-bottom: 60px; padding-top: 60px;}
+	}
+}
+
+/* End of reservation section */
+/* ------------------------------------------------------ */

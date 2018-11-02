@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BergTheme Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link rel="stylesheet" href="less/custom.css">
+		<link href='http://fonts.useso.com//css?family=Open+Sans:400,300,600&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<script src="js/jquery-2.1.0.min.js"></script>
+		<script src="js/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="col-md-12">
+                <section class="header">
+                    <h1><span>Berg HTML</span> documentation</h1>
+
+                </section>
+            </div>
+
+<div class="col-md-3">
+	<ul class="docs-nav">
+	
+		<li>
+			<a href="index.html" class="">Start</a>
+		</li>
+		<li>
+			<a href="grid.html" class="">Grid</a>
+		</li>
+		<li>
+			<a href="styles.html" class="">Styles</a>
+		</li>
+		<li>
+			<a href="navbar.html" class="active">Navbar</a>
+		</li>
+		<li>
+			<a href="intro-section.html" class="">Intro section</a>
+		</li>
+		<li>
+			<a href="home.html" class="">Home</a>
+		</li>
+		<li>
+			<a href="blog.html" class="">Blog</a>
+		</li>
+		<li>
+			<a href="restaurant.html" class="">Restaurant</a>
+		</li>
+		<li>
+			<a href="menu.html" class="">Menu</a>
+		</li>
+		<li>
+			<a href="reservation.html" class="">Reservation</a>
+		</li>
+		<li>
+			<a href="contact.html" class="">Contact</a>
+		</li>
+		<li>
+			<a href="shop.html" class="">Shop</a>
+		</li>
+		<li>
+			<a href="gallery.html" class="">Gallery</a>
+		</li>
+		<li>
+			<a href="typography.html" class="">Typography</a>
+		</li>
+		<li>
+			<a href="animations.html" class="">Animations</a>
+		</li>
+		<li>
+			<a href="authoring_info.html" class="-info">Authoring info</a>
+		</li>					
+		<li>
+			<a href="credits.html" class="">Credits</a>
+		</li>
+	</ul>
+</div>
+<div class="col-md-9">
+	<section class="main-content">
+		<h2>Navigation <small>desktop & mobile version</small></h2>
+		<hr/>
+		<p>
+			To create the most flexible navigation bar we used different markup for desktop and mobile version. It supports nested lists and is fully responsive.
+		</p>
+
+		<h3>Basic navigation</h3>
+		<hr/>
+
+		<p>In our package, you find 2 navigations (main navigation and mobile navigation). Main navigation <strong>(id: main-navbar)</strong> is default at the top of page but if you want to change position (center) in home page, add class to the body <strong>"nav-center"</strong>. Example the central navigation you can see in home page with parallax ( index5.html ). You can also choose a variant, the close navigation or the navigation with only visible logo and button reorder. If you want to have open navigation, add class to body <strong>"show-nav"</strong>. All classes used in our template find below.</p>
+
+		<h4>Navigation classes</h4>
+		<p>Remember all navigation classes add to the body.</p>
+		<dl class="dl-horizontal">
+			<dt>
+				show-nav <dd>open navigation (default: close)</dd>
+			</dt>
+			<dt>
+				nav-transparent <dd>navigation with background transparent ( default: background color) </dd>
+			</dt>
+			<dt>
+				nav-center <dd>navigation ath the center of screen </dd>
+			</dt>
+		</dl>
+
+		<pre>
+		<strong>Main navigation</strong>
+		<nav id="main-navbar" class="hidden-xs hidden-sm">
+		&lt;div class="nav hidden-xs"&gt;
+			&lt;div class="main-reorder pull-right"&gt;
+				&lt;a href="#"&gt;
+					&lt;i class="fa fa-bars"&gt;&lt;/i&gt;
+				&lt;/a&gt;
+			&lt;/div&gt;
+
+			&lt;div class="logo pull-left"&gt;
+				&lt;a href="index.html"&gt;
+					&lt;figure&gt;
+						&lt;img src="img/logo1.png" class="light-logo" alt="Berg HTML Theme"/&gt;
+						&lt;img src="img/logo2.png" class="dark-logo" alt="Berg HTML Theme"/&gt;
+					&lt;/figure&gt;
+				&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;div class="main-nav"&gt;
+				&lt;ul class="pull-right"&gt;
+					&lt;li&gt;
+						&lt;a href="index.html" class=""&gt;home&lt;/a&gt;
+						&lt;div class="subnav"&gt;
+							&lt;ul class="subnav-wrapper"&gt;
+								&lt;li&gt;
+									&lt;a href="index.html" class=""&gt;classic&lt;/a&gt;
+								&lt;/li&gt;							
+								&lt;li&gt;
+									&lt;a href="index2.html" class=""&gt;fullscreen slider&lt;/a&gt;
+								&lt;/li&gt;							
+								&lt;li&gt;
+									&lt;a href="index3.html" class=""&gt;video background&lt;/a&gt;
+								&lt;/li&gt;
+								&lt;li&gt;
+									&lt;a href="index4.html" class=""&gt;static background&lt;/a&gt;
+								&lt;/li&gt;
+								&lt;li&gt;
+									&lt;a href="index5.html" class=""&gt;parallax&lt;/a&gt;
+								&lt;/li&gt;							
+							&lt;/ul&gt;
+						&lt;/div&gt;					
+					&lt;/li&gt;
+		...
+
+		<strong>Central and open navigation</strong>
+		...
+		&lt;body class="show-nav nav-center"&gt;&lt;/body&gt;
+		...
+		</pre>	
+
+		<p>To insert a logo to the navbar you need to add your link images. We suggest to add light logo (class: "light-logo") and dark logo (class: "dark-logo"). </p>
+		<pre>
+		&lt;div class="logo pull-left"&gt;	
+		  &lt;a href="index.html"&gt;	
+			&lt;figure&gt;	
+			  &lt;<strong>img src="img/logo1.png" class="light-logo" alt="Berg HTML Theme"</strong>/&gt;	
+			   &lt;<strong>img src="img/logo2.png" class="dark-logo" alt="Berg HTML Theme"</strong>/&gt;	
+			&lt;/figure&gt;	
+		  &lt;/a&gt;	
+		&lt;/div&gt;	
+		</pre>
+
+		<h3>Mobile navigation</h3>
+		<hr/>
+		<p>
+			Mobile version of navbar authomatically redirect to resolution smaller than 992px. Navigation was changed to easy usage specially for mobile device so it contains navbar with logo and flyout container. 
+		</p>
+		<p>
+			To add own variables to list mobile navbar you edit part of markup in all files. When placed some elements in the content remember to use some of our pre-defined classes and markup snippets in order to obtain the best possible look.
+		</p>
+		</p>
+
+		<pre>
+		&lt;div id="mobile-nav" class="visible-xs visible-sm"&gt;
+			&lt;header&gt;
+				&lt;div class="container-fluid"&gt;
+					&lt;ul class="menu-header"&gt;
+						&lt;li class="pull-left"&gt;
+							&lt;a href="index.html" class="logo"&gt;
+								&lt;figure&gt;
+									&lt;img src="img/logo2.png" alt="Berg HTML Theme"/&gt;
+								&lt;/figure&gt;
+							&lt;/a&gt;
+						&lt;/li&gt;
+						&lt;li class="reorder pull-right"&gt;&lt;a href="#" title=""&gt;&lt;i class="fa fa-bars"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/div&gt;
+			&lt;/header&gt;	
+			&lt;div class="" id="flyout-container"&gt;
+				&lt;ul id="mobile-navbar" class="nav flyout-menu main-nav nav-height"&gt;
+					&lt;li class="nav-item"&gt;
+						&lt;a title="" href=""&gt;home&lt;/a&gt;
+						&lt;span class="open-children"&gt;&lt;i class="fa fa-angle-down"&gt;&lt;/i&gt;&lt;/span&gt;
+						&lt;ul class="subnav"&gt;
+							&lt;li&gt;&lt;a href="index.html" title=""&gt;&lt;span&gt;parallax&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+							&lt;li&gt;&lt;a href="index2.html" title=""&gt;&lt;span&gt;fullscreen slider&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+							&lt;li&gt;&lt;a href="index3.html"&gt;&lt;span&gt;video background&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+							&lt;li&gt;&lt;a href="index4.html" title=""&gt;&lt;span&gt;static background&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+						&lt;/ul&gt;
+					&lt;/li&gt;
+		</pre>
+
+		<p>How to change icons? Check it <a href='styles.html'>here</a>.</p>
+
+
+		<h3>Style variables</h3>
+		<hr/>
+		<p>All variables are defined in less/custom.less file. <a href="styles.html">Read more</a> how to edit and compile LESS files.</p>
+
+	</section>
+</div>
+<section class="footer">
+	created by <a href="http://yosoftware.com">yosoftware</a>
+</section>
